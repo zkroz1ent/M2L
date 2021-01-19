@@ -12,6 +12,6 @@
     <a href="Inscription">Inscription</a>
     <a href="Connextion">Connextion</a>
     
-    
+
 </body>
 </html>
