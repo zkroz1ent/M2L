@@ -6,7 +6,9 @@
     <title>Connexion</title>
 </head>
 <body>
-    <p><h1>Connexion</h1></p>
+<p><h1>M2L</h1></p>
+    <p><h2>Connexion</h2></p>
+    
     <p>
     <label for="">Pseudo</label><br>
     <input type="text" name="" id="">
@@ -15,12 +17,19 @@
 
     <label for="">Mot de passe</label><br>
     <input type="password" />
-    
-    <button type="submit" name="moderne">Envoyer</button>
-<button type="submit" name="php">
+    <br>
+    <br>
+    <button type="submit" name="moderne">ok</button>
 
-    </p>
+&nbsp;
+&nbsp;
+&nbsp;
 
-    <input type="button" value="">ok
+<button type="submit" name="moderne">Annuler</button>
+
+
+
+ </P>
+   
 </body>
 </html>
