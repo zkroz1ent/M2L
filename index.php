@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <p><h1>bienvenue</h1></p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam officia natus harum nam rem aliquam, cupiditate optio non accusamus amet, rerum quos voluptatum iusto veniam modi repudiandae soluta laborum autem.
 </body>
 </html>
 
