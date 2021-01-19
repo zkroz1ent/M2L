@@ -9,8 +9,9 @@
 <body>
     <h1>Maison des ligues de Lorraine</h1>
     <h2>Accueil</h2>
-    <a href="Inscription">Inscription</a>
-    <a href="Connextion">Connextion</a>
+    <p><img src="Img\mdl.png" alt="FATAL ERROR"></p>
+    <a href="">Inscription</a>
+    <a href="">Connextion</a>
     
 
 </body>
