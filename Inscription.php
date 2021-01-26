@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <ul>
+        <li><a href="Connexion.php">FAQ</a></li>
+        <li class="right"><a href="Inscription.php">S'inscrire</a></li>
+        <li class="right"><a href="Connexion.php">Se connecter</a></li>
+       
+    </ul>
     <div class="marg">
         <h1>M2L</h1>
         <h2>Inscription</h2>
@@ -22,8 +28,8 @@
             <option value="handball">Handball</option>
             <option value="volley">Volley</option>
         </select><br><br>
-        <a href="connexion.php">Enregistrer</a>
-        <a href="Page_accueil.php">Annuler</a>
+        <button><a href="connexion.php">Enregistrer</a></button>
+        <button><a href="Page_accueil.php">Annuler</a></button>
     </div>
     
 </body>

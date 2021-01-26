@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <ul>
+        <li><a href="Connexion.php">FAQ</a></li>
+        <li class="right"><a href="Inscription.php">S'inscrire</a></li>
+        <li class="right"><a href="Connexion.php">Se connecter</a></li>
+       
+    </ul>
 <div class="marg">
     <h1>M2L</h1>
         <p><h2>Connexion</h2></p>
@@ -22,7 +28,7 @@
         <input type="password" />
         <option value="password"></option>
         <br>
-        <button type="submit" name="moderne">accepter</button> &nbsp  &nbsp <a <button type="submit" name="moderne"  href="Page_accueil.php">retour</button></a>
+        <button type="submit" name="moderne"><a href="Liste_des_questions.php">accepter</a></button> &nbsp  &nbsp <button button type="submit" name="moderne"><a href="Page_accueil.php">retour</a></button>
 
         <option value="Annuler"></option>
 

@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <ul>
+        <li><a href="Connexion.php.php">FAQ</a></li>
+        <li class="right"><a href="Inscription.php">S'inscrire</a></li>
+        <li class="right"><a href="Connexion.php">Se connecter</a></li>
+       
+    </ul>
     <div class="marg">
         <h1>M2L</h1>
         <h2>Déconnexion</h2>

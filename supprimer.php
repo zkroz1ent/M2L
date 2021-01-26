@@ -7,21 +7,21 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-
+<ul>
+        <li><a href="Connexion.php">FAQ</a></li>
+        <li class="right"><a href="Deconnexion.php">Se déconnecter</a></li>
+       
+    </ul>
 <div class="marg">
-    <p> <a  href="Deconnexion.php">deconnecter</a>
-
 
     <p><H1>M2L</H1></p>
     <p><H3>Supprimer une question</H3></p>
-
 
     <p>
     <label for="posequestion">Question</label> <br>  
     <textarea name="posequestion" id="posequestion" cols="40" rows="20"></textarea><br> <br>
     <br>
     <br>
-
 
     <label for="Repquestion">Reponse</label> <br>  
     <textarea  name="Repquestion" id="Repquestion" cols="40" rows="20"></textarea><br> <br>

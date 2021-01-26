@@ -9,7 +9,6 @@
 <body>
 <ul>
         <li><a href="Liste_des_questions.php">FAQ</a></li>
-        <li class="right"><a  href="Inscription.php">S'inscrire</a></li>
         <li class="right" ><a href="Deconnexion.php">Se deconnecter</a></li>
        
 </ul>
@@ -21,7 +20,7 @@
     <label for="posequestion">Question</label> <br>  
     <textarea name="posequestion" id="posequestion" cols="40" rows="20"></textarea><br> <br>
 
-    <button type="submit" name="moderne">Enregister</button> &nbsp  &nbsp&nbsp <button type="submit" name="moderne"  href="Liste_des_questions.php">annuler</button>
+    <button type="submit" name="moderne"><a href="Liste_des_questions.php">Enregister</a></button> &nbsp  &nbsp&nbsp <button type="submit" name="moderne"><a href="Liste_des_questions.php">annuler</a></button>
 
 </div>
 </body>

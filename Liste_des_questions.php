@@ -9,7 +9,6 @@
 <body>
 <ul>
         <li><a href="Liste_des_questions.php">FAQ</a></li>
-        <li class="right"><a  href="Inscription.php">S'inscrire</a></li>
         <li class="right" ><a href="Deconnexion.php">Se deconnecter</a></li>
        
 </ul>
