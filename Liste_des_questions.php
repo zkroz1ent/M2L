@@ -4,8 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des questions</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<ul>
+        <li><a href="Liste_des_questions.php">FAQ</a></li>
+        <li class="right"><a  href="Inscription.php">S'inscrire</a></li>
+        <li class="right" ><a href="Deconnexion.php">Se deconnecter</a></li>
+       
+</ul>
+
+<div class="marg">
     <h1>Liste des questions</h1>
     <br><br>
     <table>
@@ -39,5 +48,6 @@
         </tr>
     </table>
     <p><a href="ajouter_question.php">Nouvelle Question</a></p>
+</div>
 </body>
 </html>
