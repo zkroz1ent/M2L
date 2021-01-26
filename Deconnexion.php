@@ -11,7 +11,7 @@
         <h1>M2L</h1>
         <h2>Déconnexion</h2>
         <p>Jef, vous êtes bien déconnecté ! </p>
-        <a href="Page_d'accueil.php">Revenir à la page d'accueil</a>
+        <a href="Page_accueil.php">Revenir à la page d'accueil</a>
     </div>
 
 </body>
