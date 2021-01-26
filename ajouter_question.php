@@ -1,35 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    
- <a  href="Deconnexion.php">deconnecter</a>
+<ul>
+        <li><a href="Liste_des_questions.php">FAQ</a></li>
+        <li class="right"><a  href="Inscription.php">S'inscrire</a></li>
+        <li class="right" ><a href="Deconnexion.php">Se deconnecter</a></li>
+       
+</ul>
 
+<div class="marg">
+    <H1>M2L</H1>
+    <H3>Ajouter une question</H3>
 
+    <label for="posequestion">Question</label> <br>  
+    <textarea name="posequestion" id="posequestion" cols="40" rows="20"></textarea><br> <br>
 
+    <button type="submit" name="moderne">Enregister</button> &nbsp  &nbsp&nbsp <button type="submit" name="moderne"  href="Liste_des_questions.php">annuler</button>
 
-
-<p><H1>M2L</H1></p>
-<p><H3>Ajouter une question</H3></p>
-
-
-
-<p>
-<label for="posequestion">Question</label> <br>  
-<textarea name="posequestion" id="posequestion" cols="40" rows="20"></textarea><br> <br>
-
-<button type="submit" name="moderne">Enregister</button> &nbsp  &nbsp&nbsp <a <button type="submit" name="moderne"  href="Liste_des_questions.php">annuler</button></a>
-
-
-
-
-
-</p>
-
-
+</div>
 </body>
 </html>
