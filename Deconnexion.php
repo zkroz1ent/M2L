@@ -7,9 +7,12 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <h1>M2L</h1>
-    <h2>Déconnexion</h2>
-    <p>Jef, vous êtes bien déconnecté ! </p>
-    <a href="Page_d'accueil.php">Revenir à la page d'accueil</a>
+    <div class="marg">
+        <h1>M2L</h1>
+        <h2>Déconnexion</h2>
+        <p>Jef, vous êtes bien déconnecté ! </p>
+        <a href="Page_d'accueil.php">Revenir à la page d'accueil</a>
+    </div>
+
 </body>
 </html>
