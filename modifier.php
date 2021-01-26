@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modifier</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
   
 
-<p> <a  href="Deconnexion.php">deconnecter</a>
-
-
-
-
-
-<p><H1>M2L</H1></p>
+<div class="marg">
+        <h1>Maison des ligues de Lorraine</h1>
+        <h2>Accueil</h2>
+        <h3>Bienvenue  sur la FAQ da la maison des ligues de Lorraine</h3>
+        <p><img src="Img\mdl.png" alt="FATAL ERROR"></p>
+        <br><br><br><br><br>
+        <p>SIO 2020/2021 Marques, Dutertre, Carles</p>
+        <p><H1>M2L</H1></p>
 <p><H3>Modifier une question</H3></p>
 
 
@@ -31,6 +33,13 @@
 <textarea  name="Repquestion" id="Repquestion" cols="40" rows="20"></textarea><br> <br>
 <br>
 <button type="submit" name="moderne">Enregister</button> &nbsp  &nbsp&nbsp <a <button type="submit" name="moderne"  href="Liste_des_questions.php">annuler</button></a></p>
+    </div>
+
+
+
+
+
+
 
 
 
