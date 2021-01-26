@@ -22,8 +22,8 @@
             <option value="handball">Handball</option>
             <option value="volley">Volley</option>
         </select><br><br>
-        <a href="">Enregistrer</a>
-        <a href="">Annuler</a>
+        <a href="connexion.php">Enregistrer</a>
+        <a href="Page_accueil.php">Annuler</a>
     </div>
     
 </body>
