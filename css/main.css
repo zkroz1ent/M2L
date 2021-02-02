@@ -6,6 +6,13 @@ body {
     padding: 0;
 }
 
+table, th, td {
+  border-style: solid;
+  border-width: 1px;
+  border-color : black;
+  border-collapse: collapse;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
