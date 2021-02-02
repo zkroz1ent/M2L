@@ -35,14 +35,14 @@
             <td>userhand</td>
             <td>Quelle est la durée d un match de handball ?</td>
             <td>Deux mi-temps de 30 minutes</td>
-            <td>// lien a rentrer </td>
+            <td class="cells"><button type="submit" name="moderne"><a href="modifier.php"><img src="Img/modifier.png" alt="" ></a></button><button type="submit" name="moderne"><a href="supprimer.php"><img src="Img/poub.png" alt=""></a></button></td>
         </tr>
         <tr>
             <td>3</td>
             <td>userhand</td>
             <td>Quel est le nombre de joueurs dans une équipe de handball</td>
             <td></td>
-            <td>// lien a rentrer </td>
+            <td class="cells"><button type="submit" name="moderne"><a href="modifier.php"><img src="Img/modifier.png" alt="" ></a></button><button type="submit" name="moderne"><a href="supprimer.php"><img src="Img/poub.png" alt=""></a></button></td>
         </tr>
     </table>
     <p><a href="ajouter_question.php">Nouvelle Question</a></p>
