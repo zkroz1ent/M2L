@@ -8,7 +8,7 @@
 </head>
 <body>
 <ul>
-        <li><a class="active" href="Liste_des_questions.php">FAQ</a></li>
+        <li><a href="Page_accueil.php">Accueil</a></li>
         <li class="right" ><a href="Deconnexion.php">Se deconnecter</a></li>
        
 </ul>
