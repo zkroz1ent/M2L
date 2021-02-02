@@ -17,7 +17,7 @@
     <div class="marg">
         <h1>Maison des ligues de Lorraine</h1>
         <h2>Accueil</h2>
-        <h3>Bienvenue  sur la FAQ da la maison des ligues de Lorraine</h3>
+        <h3>Bienvenue  sur la FAQ de la maison des ligues de Lorraine</h3>
         <p><img src="Img\mdl.png" alt="FATAL ERROR"></p>
         <br><br><br><br><br>
         <p>SIO 2020/2021 Marques, Dutertre, Carles</p>
