@@ -40,6 +40,16 @@ ul {
     background-color: rgb(0, 38, 255);
   }
 
+  img {
+    width: 25px;
+	  height: 25px;
+  }
+
+  button {
+    width: 25px;
+	  height: 25px;
+  }
+
   .active {
     background-color:rgb(0, 38, 255);
   }
@@ -53,3 +63,7 @@ ul {
 .right {
     float: right;
   }
+
+.cells {
+  text-align: center;
+}

@@ -9,8 +9,7 @@
 <body>
 <ul>
         <li><a href="Page_accueil.php">Accueil</a></li>
-        <li class="right" ><a href="Deconnexion.php">Se deconnecter</a></li>
-       
+        <li class="right" ><a href="Deconnexion.php">Se deconnecter</a></li>    
 </ul>
 
 <div class="marg">
@@ -29,7 +28,7 @@
             <td>userfoot</td>
             <td>Quelle est la taille d une cage de foot ?</td>
             <td>Dimension d'un but de football à 11 : 7,32 x 2,44 m</td>
-            <td>// lien a rentrer </td>
+            <td class="cells"><button type="submit" name="moderne"><a href="Liste_des_questions.php"><img src="Img/modifier.png" alt=""></a></button><button type="submit" name="moderne"><a href="Liste_des_questions.php"><img src="Img/poub.png" alt=""></a></button></td>
         </tr>
         <tr>
             <td>2</td>
