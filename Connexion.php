@@ -8,7 +8,7 @@
 </head>
 <body>
     <ul>
-        <li><a href="Connexion.php">FAQ</a></li>
+        <li><a href="Page_accueil.php">Accueil</a></li>
         <li class="right"><a href="Inscription.php">S'inscrire</a></li>
         <li class="right"><a class="active" href="Connexion.php">Se connecter</a></li>
        
