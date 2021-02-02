@@ -20,7 +20,7 @@
     <label for="posequestion">Question</label> <br>  
     <textarea name="posequestion" id="posequestion" cols="40" rows="20"></textarea><br> <br>
 
-    <button type="submit" name="moderne"><a href="Liste_des_questions.php">Enregister</a></button> &nbsp  &nbsp&nbsp <button type="submit" name="moderne"><a href="Liste_des_questions.php">annuler</a></button>
+    <button  type="submit" name="moderne"><a href="Liste_des_questions.php">Enregister</a></button> &nbsp  &nbsp&nbsp <button type="submit" name="moderne"><a href="Liste_des_questions.php">annuler</a></button>
 
 </div>
 </body>

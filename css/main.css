@@ -44,11 +44,16 @@ ul {
     width: 25px;
 	  height: 25px;
   }
+  .imge {
+    width: 250px;
+	  height: 250px;
+  }
 
-  button {
+  .a button {
     width: 25px;
 	  height: 25px;
   }
+ 
 
   .active {
     background-color:rgb(0, 38, 255);
