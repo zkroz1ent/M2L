@@ -26,7 +26,8 @@
     <label for="Repquestion">Reponse</label> <br>  
     <textarea  name="Repquestion" id="Repquestion" cols="40" rows="20"></textarea><br> <br>
     <br>
-    <button type="submit" name="moderne">Enregister</button> &nbsp  &nbsp&nbsp <a <button type="submit" name="moderne"  href="Liste_des_questions.php">annuler</button></a></p>
+     <button type="submit" name="moderne"><a href="Liste_des_questions.php">Enregister</button></a> &nbsp &nbsp&nbsp 
+    <button type="submit" name="moderne"><a href="Liste_des_questions.php">annuler</button></a></p>
 
 </div>
 
