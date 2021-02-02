@@ -10,7 +10,7 @@
     <ul>
         <li><a href="Connexion.php">FAQ</a></li>
         <li class="right"><a href="Inscription.php">S'inscrire</a></li>
-        <li class="right"><a href="Connexion.php">Se connecter</a></li>
+        <li class="right"><a class="active" href="Connexion.php">Se connecter</a></li>
        
     </ul>
 <div class="marg">
