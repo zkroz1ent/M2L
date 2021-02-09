@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,20 +17,38 @@
     <div class="marg">
         <h1>M2L</h1>
         <h2>Inscription</h2>
-
-        <label for="nom">Pseudo</label><br><input type="text"><br><br>
-        <label for="Email">Email</label><br><input type="text"><br><br>
-        <label for="Mot de Passe">Mot de Passe</label><br><input type="text"><br><br>
-        <label for="Ligue">Ligue</label><br>
-        <select name="ligue" id="ligue-select">
-            <option value="">--Please choose an option--</option>
-            <option value="foot">Football</option>
-            <option value="basket">BasketBall</option>
-            <option value="handball">Handball</option>
-            <option value="volley">Volley</option>
-        </select><br><br>
-        <button><a href="connexion.php">Enregistrer</a></button>
-        <button><a href="Page_accueil.php">Annuler</a></button>
+        <form method="post">
+            <label for="nom">Pseudo<br><input type="text" name="nom"><br><br></label>
+            <label for="Email">Email<br><input type="text" name="Email"><br><br></label>
+            <label for="passe">Mot de Passe<br><input type="password" name="passe"><br><br></label>
+            <label for="passe2">Confirmation du mot de passe: <br><input type="password" name="passe2"/></label><br><br>
+            <label for="Ligue">Ligue</label><br>
+            <select name="ligue" id="ligue-select">
+                <option value="">--Please choose an option--</option>
+                <option value="foot">Football</option>
+                <option value="basket">BasketBall</option>
+                <option value="handball">Handball</option>
+                <option value="volley">Volley</option>
+            </select><br><br>
+            <p>
+                <input name="inscrire" type="submit" id="s'inscrire" value="s'inscrire">
+            </p>
+        </form>
+        <?php
+            if (isset($_POST['nom'])&& isset($_POST['Email'])&&isset($_POST['passe'])==($_POST['passe2'])) {
+                $nom = $_POST['nom'];
+                $mdp = $_POST['passe'];
+                $mail = $_POST['Email'];
+                echo "Votre pseudo est : ".$nom;
+                echo "Votre mail est : ".$mail;
+                echo "Votre mdp est : ".$mdp;
+            /*
+            ... code qui verifie si le mot de passe et lusager correspond, puis upload le fichier choisi
+            */
+            } else {
+                echo "frr t'as zehef t'as fais un truc mal";
+            }
+        ?>
     </div>
     
 </body>
