@@ -25,7 +25,7 @@
             <label for="Ligue">Ligue</label><br>
             <select name="ligue" id="ligue-select">
                 <option value="">--Please choose an option--</option>
-                <option value="foot">Football</option>
+                <option value="foot" selected>Football</option>
                 <option value="basket">BasketBall</option>
                 <option value="handball">Handball</option>
                 <option value="volley">Volley</option>
@@ -35,18 +35,22 @@
             </p>
         </form>
         <?php
-            if (isset($_POST['nom'])&& isset($_POST['Email'])&&isset($_POST['passe'])==($_POST['passe2'])) {
-                $nom = $_POST['nom'];
-                $mdp = $_POST['passe'];
-                $mail = $_POST['Email'];
-                echo "Votre pseudo est : ".$nom;
-                echo "Votre mail est : ".$mail;
-                echo "Votre mdp est : ".$mdp;
-            /*
-            ... code qui verifie si le mot de passe et lusager correspond, puis upload le fichier choisi
-            */
+            $dep=($_POST['ligue']);
+            echo $dep;
+            if (!empty($_POST['nom']) && !empty($_POST['Email']) && !empty($_POST['passe']) && !empty($_POST['passe2']) && !empty($_POST['ligue'])) {
+                if($_POST['passe'] == $_POST['passe2']){
+                    $nom = $_POST['nom'];
+                    $mdp = $_POST['passe'];
+                    $mail = $_POST['Email'];
+                    echo "Votre pseudo est : ".$nom;
+                    echo "Votre mail est : ".$mail;
+                    echo "Votre mdp est : ".$mdp;
+                }else{
+                    echo "ca bub";
+                }
+    
             } else {
-                echo "frr t'as zehef t'as fais un truc mal";
+                echo "ca bub";
             }
         ?>
     </div>

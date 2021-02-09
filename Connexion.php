@@ -27,9 +27,6 @@
             <label for="remdp">confirmation Mot de passe</label><br>
             <input type="password" name="remdp"/>
             <br><br>
-            <p>
-                <input name="connecter" type="submit" id="se connecter" value="se connecter">
-            </p>
             <input type="submit" name="submit" value="Enregistrer"> &nbsp  &nbsp 
             <input type="reset" name="submit" value="Enregistrer">
         </form>
@@ -37,7 +34,7 @@
         <?php
         /*$submit = isset($_POST['submit']);
         if ($submit) {*/
-        $pseudo=isset($_POST['pseudo']) ? $_POST['pseudo'] : '0';
+        $pseudo=isset($_POST['pseudo']) ? $_POST['pseudo'] : '';
         $mdp=isset($_POST['mdp']) ? $_POST['mdp'] : '';
         $remdp=isset($_POST['remdp']) ? $_POST['remdp'] : ''; 
         echo "$pseudo<br>";
