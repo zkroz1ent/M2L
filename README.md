@@ -11,7 +11,7 @@ Les services informatiques concernent tout ce qui touche à la maintenance, au s
 la gestion de l’infrastructure, mais également aux projets de développement logiciel.
 
 
-Le projet M2L « FAQ »
+# Le projet M2L « FAQ »
 
 Les différentes ligues sportives ont chacun un site qui présente leurs activités.
 Il a été décidé de mettre en place une FAQ (Foire Aux Questions) pour chaque ligue.
@@ -19,4 +19,5 @@ Tout internaute doit pouvoir se connecter afin de poser des questions et consult
 questions/réponses relatives au sport de la ligue.
 Il doit au préalable s’inscrire sur le site. Les réponses sont saisies par les administrateurs de la FAQ.
 
-
+Equipe composé de Damien Dutertre, Yohan Marques, Adrien Carles 
+La dream team 
