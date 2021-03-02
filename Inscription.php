@@ -35,18 +35,19 @@
             </p>
         </form>
         <?php
-            $dep=($_POST['ligue']);
-            echo $dep;
+            
             if (!empty($_POST['nom']) && !empty($_POST['Email']) && !empty($_POST['passe']) && !empty($_POST['passe2']) && !empty($_POST['ligue'])) {
                 if($_POST['passe'] == $_POST['passe2']){
                     $nom = $_POST['nom'];
                     $mdp = $_POST['passe'];
                     $mail = $_POST['Email'];
-                    echo "Votre pseudo est : ".$nom;
-                    echo "Votre mail est : ".$mail;
-                    echo "Votre mdp est : ".$mdp;
+                    echo "Votre pseudo est : "."$nom<br>";
+                    echo "Votre mail est : "."$mail<br>";
+                    echo "Votre mdp est : "."$mdp<br>";
+                    $dep=($_POST['ligue']);
+                    echo "Votre ligue est :"."$dep";
                 }else{
-                    echo "ca bub";
+                    echo "ca bug";
                 }
     
             } else {
