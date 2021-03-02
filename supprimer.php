@@ -27,10 +27,11 @@
     <textarea  name="Repquestion" id="Repquestion" cols="40" rows="20"></textarea><br> <br>
     <br>
      <button type="submit" name="moderne"><a href="Liste_des_questions.php">Enregister</button></a> &nbsp &nbsp&nbsp 
-    <button type="submit" name="moderne"><a href="Liste_des_questions.php">annuler</button></a></p>
+    <button type="submit" name="moderne"><a href="Liste_des_questions.php">Annuler</button></a></p>
 
 </div>
 
 
 </body>
+    <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
 </html>

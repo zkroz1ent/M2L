@@ -23,5 +23,6 @@
     <button  type="submit" name="moderne"><a href="Liste_des_questions.php">Enregister</a></button> &nbsp  &nbsp&nbsp <button type="submit" name="moderne"><a href="Liste_des_questions.php">annuler</a></button>
 
 </div>
+    <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
 </body>
 </html>

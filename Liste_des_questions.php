@@ -47,5 +47,6 @@
     </table>
     <p><a href="ajouter_question.php">Nouvelle Question</a></p>
 </div>
+    <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
 </body>
 </html>

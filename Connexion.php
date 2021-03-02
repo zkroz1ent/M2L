@@ -28,7 +28,7 @@
             <input type="password" name="remdp"/>
             <br><br>
             <input type="submit" name="submit" value="Enregistrer"> &nbsp  &nbsp 
-            <input type="reset" name="submit" value="Enregistrer">
+            <input type="reset" name="submit" value="Réinitialiation">
         </form>
 
         <?php
@@ -47,5 +47,6 @@
     /*}*/
     ?>
 </div>
+    <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
 </body>
 </html>

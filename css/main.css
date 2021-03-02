@@ -79,3 +79,8 @@ ul {
 .cells {
   text-align: center;
 }
+.pied {
+  position: absolute;
+  bottom: 0;
+  right: 42%;
+}
