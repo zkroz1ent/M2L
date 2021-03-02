@@ -13,12 +13,7 @@
 
 <?php
 $id_usertype=1;
-$nom='test';   
-$passe='test';  
-$Email='test@m2l.fr';
-$id_usertype=1 ; 
-$ligue=5;
-$id_user=9;
+
 
 $dsn ='mysql:host=localhost;dbname=ligue des sport'; 
 $user ='root';
@@ -35,14 +30,14 @@ die("Erreur lors de la connexion SQL : " . $ex->getMessage());
 <?php
 echo'cheh';
 
-$req = $dbh->prepare('INSERT INTO user(id_user,pseudo, mdp, mail, id_usertype, id_ligue) VALUES(:id_user,:pseudo, :mdp, :mail, :id_usertype, :id_ligue)');
+$req = $dbh->prepare('INSERT INTO user(pseudo, mdp, mail, id_usertype, id_ligue) VALUES(:id_user,:pseudo, :mdp, :mail, :id_usertype, :id_ligue)');
 $req->execute(array(
-    'id_user'  => $id_user,
-    'pseudo' => $nom,
-    'mdp' => $passe,
-    'mail'=>   $Email,
+
+    'pseudo' => $_POST['nom'],
+    'mdp' => password_hash( $_POST['passe'], PASSWORD_DEFAULT),
+    'mail'=>   $_POST['Email'],
     'id_usertype'=> $id_usertype,
-    'id_ligue'=>   $ligue 
+    'id_ligue'=>   $_POST['ligue']
     ));
 
 echo 'enregistrement effectuéé !';

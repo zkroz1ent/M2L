@@ -58,16 +58,16 @@ try {
                   
                     $id_usertype=1;
                     try {          
-                    $req = $dbh->prepare("INSERT INTO user(pseudo, mdp, mail, id_usertype ,id_ligue) VALUES(:pseudo, :mdp, :mail, :id_usertype, :id_ligue)");
-                    $req->execute(array(
+                        $req = $dbh->prepare('INSERT INTO user(pseudo, mdp, mail, id_usertype, id_ligue) VALUES(:pseudo, :mdp, :mail, :id_usertype, :id_ligue)');
+                        $req->execute(array(
                         
-                        'pseudo' => $_POST['nom'],
-                        'mpd' =>  password_hash( $_POST['passe'], PASSWORD_DEFAULT),
-                        'mail'=>   $_POST['Email'],
-                        'id_usertype'=> $id_usertype,
-                        'id_ligue'=>   $_POST['ligue']
-                       
-                        ));
+                            'pseudo' => $_POST['nom'],
+                            'mdp' => password_hash( $_POST['passe'], PASSWORD_DEFAULT),
+                            'mail'=>   $_POST['Email'],
+                            'id_usertype'=> $id_usertype,
+                            'id_ligue'=>   $_POST['ligue']
+                            ));
+                        
                         echo 'enregistrement effectuéé !';
                     } catch (PDOException $ex) {
                         die("Erreur lors de la requête SQL : ".$ex->getMessage());
