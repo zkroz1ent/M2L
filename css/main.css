@@ -11,12 +11,18 @@ body {
 table, th, td {
   border-style: solid;
   border-width: 1px;
-  border-color : black;
-  border-collapse: collapse;
+  border-color : rgb(231, 194, 137);
 }
 table {
+  width: 100%;
   margin: auto;
   text-align: center;
+}
+th {
+  background-color: rgb(75, 73, 73);
+}
+td, th {
+  padding: 15px;
 }
 
 ul {
