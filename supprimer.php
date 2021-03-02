@@ -14,8 +14,8 @@
     </ul>
 <div class="marg">
 
-    <p><H1>M2L</H1></p>
-    <p><H3>Supprimer une question</H3></p>
+    <h1>M2L</h1>
+    <h3>Supprimer une question</h3>
 
     <p>
     <label for="posequestion">Question</label> <br>  
