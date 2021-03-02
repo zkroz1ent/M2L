@@ -27,7 +27,7 @@
             <label for="remdp">confirmation Mot de passe</label><br>
             <input type="password" name="remdp"/>
             <br><br>
-            <input type="submit" name="submit" value="Enregistrer"> &nbsp  &nbsp 
+            <input type="submit" name="submit" value="Enregistrer"> &nbsp;&nbsp; 
             <input type="reset" name="submit" value="Réinitialiation">
         </form>
 
