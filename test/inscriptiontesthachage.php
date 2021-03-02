@@ -1,15 +1,21 @@
 <?php
 
                    
-try
-{
-    $dbh = new PDO('mysql:host=localhost;dbname=ligue des sport;charset=utf8', 'root', '');
+$dsn = 'mysql:host=localhost;dbname=m2l'; // contient le nom du serveur et de la base
+$user = 'root';
+$password = '';
+
+try {
+
+    $dbh = new PDO($dsn, $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+} catch (PDOException $ex) {
+    die("Erreur lors de la connexion SQL : " . $ex->getMessage());
 }
-catch(Exception $e)
-{
-        die('Erreur : '.$e->getMessage());
-}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -46,39 +52,27 @@ catch(Exception $e)
             </p>
         </form>
         <?php
-            
-            $id_usertype=1;
-                    
-                    
-                   
-            $req = $dbh->prepare('INSERT INTO user(pseudo, mpd, mail, id_usertype ,id_ligue) VALUES(:pseudo, :mpd, :mail, :id_usertype, :id_ligue)');
-            $req->execute(array(
-                
-                'pseudo' =>  '$_POST["nom"]',
-                'mpd' =>  ' password_hash( $_POST["passe"], PASSWORD_DEFAULT)',
-                'mail'=>   '$_POST["Email"]',
-                'id_usertype'=> '$id_usertype' ,
-                'id_ligue'=>   '$_POST["ligue"]'
-                
-    
-                ));
-            
-            echo 'enregistrement effectuéé !';
-            
-
-
-
-
 
             if (!empty($_POST['nom']) && !empty($_POST['Email']) && !empty($_POST['passe']) && !empty($_POST['passe2']) && !empty($_POST['ligue'])) {
-                if($_POST['passe'] == $_POST['passe2']){
-                 
-                    
+                if($_POST['passe'] == $_POST['passe2']){           
                   
-                
-                   
-
-
+                    $id_usertype=1;
+                    try {          
+                    $req = $dbh->prepare("INSERT INTO user(pseudo, mdp, mail, id_usertype ,id_ligue) VALUES(:pseudo, :mdp, :mail, :id_usertype, :id_ligue)");
+                    $req->execute(array(
+                        
+                        'pseudo' => $_POST['nom'],
+                        'mpd' =>  password_hash( $_POST['passe'], PASSWORD_DEFAULT),
+                        'mail'=>   $_POST['Email'],
+                        'id_usertype'=> $id_usertype,
+                        'id_ligue'=>   $_POST['ligue']
+                       
+                        ));
+                        echo 'enregistrement effectuéé !';
+                    } catch (PDOException $ex) {
+                        die("Erreur lors de la requête SQL : ".$ex->getMessage());
+                    }
+                    echo "oui";
 
 
                 }else{
