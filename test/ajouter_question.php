@@ -38,7 +38,11 @@ $question = isset($_POST['question']) ? $_POST['question'] : '';
 $submit = isset($_POST['submit']);
 
 echo $question;
+echo "<br>";
 echo $submit;
+echo "<br>";
+echo $date;
+//date pas bonne changer le format 
 if ($submit){
 
   
@@ -46,7 +50,7 @@ if ($submit){
     
     
         try {
-            $req = $bdd->prepare('INSERT INTO faq(question,date_question) VALUES(:question, :datee)');
+            $req = $dbh->prepare('INSERT INTO faq(question,date_question) VALUES(:question, :datee)');
             $req->execute(array(
     
                 'question' => $question,
