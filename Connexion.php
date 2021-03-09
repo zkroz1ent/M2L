@@ -1,3 +1,7 @@
+<?php
+include "inclusion.php"
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>

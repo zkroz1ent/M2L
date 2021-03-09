@@ -1,3 +1,7 @@
+<?php
+    include "inclusion.php"
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,14 +23,20 @@
 
     <p>
     <label for="posequestion">Question</label> <br>  
-    <textarea name="posequestion" id="posequestion" cols="40" rows="20"></textarea><br> <br>
+    <?php
+        echo "$question";
+    ?>
+    <textarea name="posequestion" id="posequestion" cols="150" rows="15"></textarea><br> <br> <!-- il faut que la question ne soit pas modifiable  -->
     <br>
     <br>
 
     <label for="Repquestion">Reponse</label> <br>  
-    <textarea  name="Repquestion" id="Repquestion" cols="40" rows="20"></textarea><br> <br>
+    <?php
+        echo "$reponse";
+    ?>
+    <textarea  name="Repquestion" id="Repquestion" cols="150" rows="15"></textarea><br> <br>
     <br>
-     <button type="submit" name="moderne"><a href="Liste_des_questions.php">Enregister</a></button> &nbsp;&nbsp;&nbsp; 
+    <button type="submit" name="moderne"><a href="Liste_des_questions.php">Supprimer</a></button> &nbsp;&nbsp;&nbsp; 
     <button type="submit" name="moderne"><a href="Liste_des_questions.php">Annuler</a></button>
     </p>
 
