@@ -31,7 +31,7 @@ include "inclusion.php"
         </tr>
 
 <?php
-$reponse = $bdd->query('SELECT question , reponse ,pseudo ,dat_question , dat_reponse FROM faq , user WHERE user.id_user=faq.id_user');
+$reponse = $dbh->query('SELECT question , reponse ,pseudo ,dat_question , dat_reponse FROM faq , user WHERE user.id_user=faq.id_user');
 echo "<tr>"; 
 $i=0;
     while ($donnees = $reponse->fetch())
@@ -46,7 +46,7 @@ $i++;
       echo "<td>".$donnees['dat_reponse']."</td>"; 
       echo "<td>".$donnees['reponse']."</td>"; 
     ?>
-    <td class="cells"><button type="submit" name="moderne"><a href="modifier.php"><img src="Img/modifier.png" alt="" ></a></button><button type="submit" name="moderne"><a href="supprimer.php"><img src="Img/poub.png" alt=""></a></button></td>
+    <td class="cells"><button type="submit" name="moderne"><a href="modifier.php"><img src="Img/modifier.png" alt="" ></a></button>&nbsp;<button type="submit" name="moderne"><a href="supprimer.php"><img src="Img/poub.png" alt=""></a></button></td>
     </tr>
     <?php
     }
@@ -54,6 +54,7 @@ $i++;
     </table>
     <p><a href="ajouter_question.php">Nouvelle Question</a></p>
 </div>
+
     <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
 </body>
 </html>

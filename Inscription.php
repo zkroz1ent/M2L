@@ -42,10 +42,10 @@ include "inclusion.php"
                     $nom = $_POST['nom'];
                     $mdp = $_POST['passe'];
                     $mail = $_POST['Email'];
+                    $dep=($_POST['ligue']);
                     echo "Votre pseudo est : "."$nom<br>";
                     echo "Votre mail est : "."$mail<br>";
                     echo "Votre mdp est : "."$mdp<br>";
-                    $dep=($_POST['ligue']);
                     echo "Votre ligue est :"."$dep";
                 }else{
                     echo "ca bug";
