@@ -10,7 +10,7 @@
 try
 {
 	// On se connecte à MySQL
-	$bdd = new PDO('mysql:host=localhost;dbname=jeux video;charset=utf8', 'root', '');
+	$bdd = new PDO('mysql:host=localhost;dbname=m2l;charset=utf8', 'root', '');
 }
 catch(Exception $e)
 {
@@ -21,14 +21,14 @@ catch(Exception $e)
 // Si tout va bien, on peut continuer
 
 // On récupère tout le contenu de la table jeux_video
-$reponse = $bdd->query('SELECT * FROM jeux_video');
+$reponse = $bdd->query('SELECT * FROM faq');
 
 // On affiche chaque entrée une à une
 while ($donnees = $reponse->fetch())
 {
 ?>
     <p>
-    <?php echo $donnees['nbre_joueurs_max']; ?>
+    <?php echo $donnees['question']; ?>
 
 
     
