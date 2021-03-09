@@ -1,24 +1,10 @@
-<?php
-try
-{
-	// On se connecte à MySQL
-	$bdd = new PDO('mysql:host=localhost;dbname=m2l;charset=utf8', 'root', '');
-}
-catch(Exception $e)
-{
-	// En cas d'erreur, on affiche un message et on arrête tout
-        die('Erreur : '.$e->getMessage());
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des questions</title>
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <ul>
@@ -30,36 +16,34 @@ catch(Exception $e)
     <h1>Liste des questions</h1>
     <br><br>
     <table>
-    <tr>
+        <tr>
             <th>Nr</th>
             <th>Auteur</th>
-            <th>Date Questions</th>
             <th>Questions</th>
-            <th>Date Réponse</th>
             <th>Réponse</th>
             <th>Action</th>
         </tr>
-
-<?php
-$reponse = $bdd->query('SELECT question , reponse ,pseudo ,dat_question , dat_reponse FROM faq , user WHERE user.id_user=faq.id_user');
-echo "<tr>"; 
-$i=0;
-    while ($donnees = $reponse->fetch())
-    {
-       
-$i++;
-
-      echo "<tr><td>".$i."</td>";
-      echo "<td>".$donnees['pseudo']."</td>";  
-      echo "<td>".$donnees['dat_question']."</td>"; 
-      echo "<td>".$donnees['question']."</td>"; 
-      echo "<td>".$donnees['dat_reponse']."</td>"; 
-      echo "<td>".$donnees['reponse']."</td></tr>"; 
-     
-
-    }
-    ?>
-
+        <tr>
+            <td>1</td>
+            <td>userfoot</td>
+            <td>Quelle est la taille d une cage de foot ?</td>
+            <td>Dimension d'un but de football à 11 : 7,32 x 2,44 m</td>
+            <td class="cells"><button type="submit" name="moderne"><a href="modifier.php"><img src="Img/modifier.png" alt="" ></a></button><button type="submit" name="moderne"><a href="supprimer.php"><img src="Img/poub.png" alt=""></a></button></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>userhand</td>
+            <td>Quelle est la durée d un match de handball ?</td>
+            <td>Deux mi-temps de 30 minutes</td>
+            <td class="cells"><button type="submit" name="moderne"><a href="modifier.php"><img src="Img/modifier.png" alt="" ></a></button><button type="submit" name="moderne"><a href="supprimer.php"><img src="Img/poub.png" alt=""></a></button></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>userhand</td>
+            <td>Quel est le nombre de joueurs dans une équipe de handball</td>
+            <td></td>
+            <td class="cells"><button type="submit" name="moderne"><a href="modifier.php"><img src="Img/modifier.png" alt="" ></a></button><button type="submit" name="moderne"><a href="supprimer.php"><img src="Img/poub.png" alt=""></a></button></td>
+        </tr>
     </table>
     <p><a href="ajouter_question.php">Nouvelle Question</a></p>
 </div>

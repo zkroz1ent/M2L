@@ -86,7 +86,7 @@ ul {
   text-align: center;
 }
 .pied {
-  position: absolute;
+  position: relative;
+  text-align: center;
   bottom: 0;
-  right: 42%;
 }
