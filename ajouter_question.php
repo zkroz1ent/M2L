@@ -18,7 +18,7 @@
     <H3>Ajouter une question</H3>
 
     <label for="posequestion">Question</label> <br>  
-    <textarea name="posequestion" id="posequestion" cols="40" rows="20"></textarea><br> <br>
+    <textarea name="posequestion" id="posequestion" cols="150" rows="15"></textarea><br> <br>
 
     <button  type="submit" name="moderne"><a href="Liste_des_questions.php">Enregister</a></button> &nbsp  &nbsp&nbsp <button type="submit" name="moderne"><a href="Liste_des_questions.php">annuler</a></button>
 

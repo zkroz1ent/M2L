@@ -54,12 +54,13 @@ $i++;
       echo "<td>".$donnees['dat_question']."</td>"; 
       echo "<td>".$donnees['question']."</td>"; 
       echo "<td>".$donnees['dat_reponse']."</td>"; 
-      echo "<td>".$donnees['reponse']."</td></tr>"; 
-     
-
+      echo "<td>".$donnees['reponse']."</td>"; 
+    ?>
+    <td class="cells"><button type="submit" name="moderne"><a href="modifier.php"><img src="Img/modifier.png" alt="" ></a></button><button type="submit" name="moderne"><a href="supprimer.php"><img src="Img/poub.png" alt=""></a></button></td>
+    </tr>
+    <?php
     }
     ?>
-
     </table>
     <p><a href="ajouter_question.php">Nouvelle Question</a></p>
 </div>
