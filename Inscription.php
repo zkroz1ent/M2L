@@ -15,7 +15,6 @@ include "inclusion.php"
         <li><a href="Page_accueil.php">Accueil</a></li>
         <li class="right"><a class="active" href="Inscription.php">S'inscrire</a></li>
         <li class="right"><a href="Connexion.php">Se connecter</a></li>
-       
     </ul>
     <div class="marg">
         <h1>M2L</h1>
@@ -38,7 +37,6 @@ include "inclusion.php"
             </p>
         </form>
         <?php
-            
             if (!empty($_POST['nom']) && !empty($_POST['Email']) && !empty($_POST['passe']) && !empty($_POST['passe2']) && !empty($_POST['ligue'])) {
                 if($_POST['passe'] == $_POST['passe2']){
                     $nom = $_POST['nom'];
