@@ -62,7 +62,7 @@ try {
                         $req->execute(array(
                         
                             'pseudo' => $_POST['nom'],
-                            'mdp' => password_hash( $_POST['passe'], PASSWORD_DEFAULT),
+                            'mdp' => crypt( $_POST['passe'],'$M2LI$Uueuhadnadan$daIUIUIUIUIUI4$'),
                             'mail'=>   $_POST['Email'],
                             'id_usertype'=> $id_usertype,
                             'id_ligue'=>   $_POST['ligue']
