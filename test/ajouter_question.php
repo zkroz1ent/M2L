@@ -1,61 +1,74 @@
-
 <?php
-
-                   
-$dsn = 'mysql:host=localhost;dbname=m2l'; // contient le nom du serveur et de la base
-$user = 'root';
-$password = '';
-
-try {
-
-    $dbh = new PDO($dsn, $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-} catch (PDOException $ex) {
-    die("Erreur lors de la connexion SQL : " . $ex->getMessage());
-}
-
+include "../inclusion.php";
+date_default_timezone_set('Europe/Paris');
+    $date = date('d-m-y h:i:s');
 ?>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
+<ul>
+        <li><a href="Liste_des_questions.php">FAQ</a></li>
+        <li class="right" ><a href="Deconnexion.php">Se deconnecter</a></li>
+       
+</ul>
 
+<div class="marg">
+    <H1>M2L</H1>
+    <H3>Ajouter une question</H3>
+
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+
+
+<textarea name="question" id="question" cols="30" rows="10" value="question"></textarea><br>
+
+<label for="submit"></label>
+<input type="submit" name="submit" value="submit">
+</form>
 
 <?php
+$question = isset($_POST['question']) ? $_POST['question'] : '';
+$submit = isset($_POST['submit']);
 
-     
-      
-        $id_usertype=1;
-        try {          
-            $req = $dbh->prepare('INSERT INTO faq(question,date_question) VALUES(:question, :date)');
+echo $question;
+echo $submit;
+if ($submit){
+
+  
+    
+    
+    
+        try {
+            $req = $bdd->prepare('INSERT INTO faq(question,date_question) VALUES(:question, :datee)');
             $req->execute(array(
-            
-                'pseudo' => $_POST['nom'],
-                'mdp' => crypt( $_POST['passe'],'$M2LI$Uueuhadnadan$daIUIUIUIUIUI4$'),
-                
-                ));
-            
+    
+                'question' => $question,
+                'datee' => $date,
+    
+            ));
+    
             echo 'enregistrement effectuéé !';
         } catch (PDOException $ex) {
-            die("Erreur lors de la requête SQL : ".$ex->getMessage());
+            die("Erreur lors de la requête SQL : " . $ex->getMessage());
         }
-        echo "oui";
 
 
-    }else{
-        echo "ca bug";
-    }
 
-} else {
-    echo "ca bub";
+
+}else{
+echo "<p>entrez votre question</p>";
+
 }
-?> 
+?>
+</div>
+    <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
 </body>
 </html>
+
