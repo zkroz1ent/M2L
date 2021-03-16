@@ -31,12 +31,12 @@ include "inclusion.php"
         </tr>
 
 <?php
-$reponse = $dbh->query('SELECT question , reponse ,pseudo ,dat_question , dat_reponse FROM faq , user WHERE user.id_user=faq.id_user');
+$reponse = $dbh->query('SELECT question , reponse ,pseudo ,dat_question , dat_reponse ,id_faq FROM faq , user WHERE user.id_user=faq.id_user');
 echo "<tr>"; 
 $i=0;
     while ($donnees = $reponse->fetch())
     {
-       
+      $id_faq=$donnees['id_faq'];
 $i++;
 
       echo "<tr><td>".$i."</td>";
@@ -46,7 +46,7 @@ $i++;
       echo "<td>".$donnees['dat_reponse']."</td>"; 
       echo "<td>".$donnees['reponse']."</td>"; 
     ?>
-    <td class="cells"><button type="submit" name="moderne"><a href="modifier.php"><img src="Img/modifier.png" alt="" ></a></button>&nbsp;<button type="submit" name="moderne"><a href="supprimer.php"><img src="Img/poub.png" alt=""></a></button></td>
+    <td class="cells"><button type="submit" name="moderne"><a href="modifier.php?id_faq=<?php echo $id_faq ?>"><img src="Img/modifier.png" alt="" ></a></button><button type="submit" name="moderne"><a href="supprimer.php?id_faq=<?php echo $id_faq ?>"><img src="Img/poub.png" alt=""></a></button></td>
     </tr>
     <?php
     }

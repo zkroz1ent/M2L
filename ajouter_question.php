@@ -1,6 +1,9 @@
 <?php
-include "inclusion.php"
+include "inclusion.php";
+date_default_timezone_set('Europe/Paris');
+    $date = date('20y-m-d h:i:s');
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -21,12 +24,58 @@ include "inclusion.php"
     <H1>M2L</H1>
     <H3>Ajouter une question</H3>
 
-    <label for="posequestion">Question</label> <br>  
-    <textarea name="posequestion" id="posequestion" cols="150" rows="15"></textarea><br> <br>
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
-    <button  type="submit" name="moderne"><a href="Liste_des_questions.php">Enregister</a></button> &nbsp  &nbsp&nbsp <button type="submit" name="moderne"><a href="Liste_des_questions.php">annuler</a></button>
 
+<textarea name="question" id="question" cols="30" rows="10" value="question"></textarea><br>
+
+<label for="submit"></label>
+<input type="submit" name="submit" value="submit">
+</form>
+
+<?php
+$question = isset($_POST['question']) ? $_POST['question'] : '';
+$submit = isset($_POST['submit']);
+
+echo $question;
+echo "<br>";
+echo $submit;
+echo "<br>";
+echo $date;
+echo "<br>";
+
+$id_user=1;
+if ($submit){
+
+  
+    
+    
+    
+        try {
+            $req = $dbh->prepare('INSERT INTO faq(question,dat_question , id_user) VALUES(:question, :datee ,:id_user)');
+            $req->execute(array(
+    
+                'question' => $question,
+                'datee' => $date,
+                 'id_user'=>$id_user,
+            ));
+    
+            echo 'enregistrement effectuéé !';
+            header('Location:liste_des_questions.php');     
+        } catch (PDOException $ex) {
+            die("Erreur lors de la requête SQL : " . $ex->getMessage());
+        }
+
+
+
+
+}else{
+echo "<p>entrez votre question</p>";
+
+}
+?>
 </div>
     <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
 </body>
 </html>
+
