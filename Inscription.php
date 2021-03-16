@@ -26,34 +26,41 @@ include "inclusion.php"
             <label for="passe2">Confirmation du mot de passe: <br><input type="password" name="passe2"/></label><br><br>
             <label for="Ligue">Ligue</label><br>
             <select name="ligue" id="ligue-select">
-                <option value="">--Please choose an option--</option>
-                <option value="foot" selected>Football</option>
-                <option value="basket">BasketBall</option>
-                <option value="handball">Handball</option>
-                <option value="volley">Volley</option>
+                <option value=""selected>--Please choose an option--</option>
+                <option value= 5 >Football</option>
+                <option value= 2 >BasketBall</option>
+                <option value= 4 >Handball</option>
+                <option value= 3 >Volley</option>
             </select><br><br>
             <p>
                 <input name="inscrire" type="submit" id="s'inscrire" value="s'inscrire">
             </p>
         </form>
         <?php
-            if (!empty($_POST['nom']) && !empty($_POST['Email']) && !empty($_POST['passe']) && !empty($_POST['passe2']) && !empty($_POST['ligue'])) {
-                if($_POST['passe'] == $_POST['passe2']){
-                    $nom = $_POST['nom'];
-                    $mdp = $_POST['passe'];
-                    $mail = $_POST['Email'];
-                    $dep=($_POST['ligue']);
-                    echo "Votre pseudo est : "."$nom<br>";
-                    echo "Votre mail est : "."$mail<br>";
-                    echo "Votre mdp est : "."$mdp<br>";
-                    echo "Votre ligue est :"."$dep";
-                }else{
-                    echo "ca bug";
+          if (!empty($_POST['nom']) && !empty($_POST['Email']) && !empty($_POST['passe']) && !empty($_POST['passe2']) && !empty($_POST['ligue'])) {
+            if($_POST['passe'] == $_POST['passe2']){           
+              
+                $id_usertype= '1';
+                $pass = $_POST['passe'];
+                $hash = password_hash($pass,PASSWORD_BCRYPT,['cost' => 5]) ;
+                try {          
+                    $req = $dbh->prepare('INSERT INTO user(pseudo, mdp, mail, id_usertype, id_ligue) VALUES(:pseudo, :mdp, :mail, :id_usertype, :id_ligue)');
+                    $req->execute(array(
+                        ':pseudo' => $_POST['nom'],
+                        ':mdp' => $hash,
+                        ':mail'=>   $_POST['Email'],
+                        ':id_usertype'=> $id_usertype,
+                        ':id_ligue'=>   $_POST['ligue']
+                        ));
+                        header("Location: Connexion.php");
+                } catch (PDOException $ex) {
+                    die("Erreur lors de la requête SQL : ".$ex->getMessage());
                 }
-    
-            } else {
-                echo "ca bub";
+                echo "oui";
+            }else{
+                echo "ca bug";
             }
+        } 
         ?>
     </div>
     <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
