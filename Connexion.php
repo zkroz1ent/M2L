@@ -1,5 +1,32 @@
 <?php
-include "inclusion.php"
+include "inclusion.php";
+session_start ();
+
+$pseudo=isset($_POST['pseudo']) ? $_POST['pseudo'] : '';
+$mdp=isset($_POST['mdp']) ? $_POST['mdp'] : '';
+$submit = isset($_POST['submit']);
+    
+
+if ($submit) {
+    $sql = "select * from user where pseudo=:pseudo and mdp=:mdp";
+    try {
+        $sth = $dbh->prepare($sql);
+        $sth->execute(array(
+      ':pseudo' => $pseudo,
+      ':mdp' => $mdp
+    ));
+        $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $ex) {
+        die("Erreur lors de la requête SQL : ".$ex->getMessage());
+    }
+    if (count($rows)==1) {
+        $_SESSION['username']=$pseudo;
+        header("Location: Liste_des_questions.php");
+        exit();
+    } else {
+        $message = "username et/ou password invalide";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,28 +55,10 @@ include "inclusion.php"
             <label for="mdp">Mot de passe</label><br>
             <input type="password" name="mdp"/>
             <br><br>
-            <label for="remdp">confirmation Mot de passe</label><br>
-            <input type="password" name="remdp"/>
-            <br><br>
-            <input type="submit" name="submit" value="Enregistrer"> &nbsp;&nbsp; 
+            <input type="submit" name="submit" value="Se Connecter"> &nbsp;&nbsp; 
             <input type="reset" name="submit" value="Réinitialiation">
         </form>
 
-        <?php
-        /*$submit = isset($_POST['submit']);
-        if ($submit) {*/
-        $pseudo=isset($_POST['pseudo']) ? $_POST['pseudo'] : '';
-        $mdp=isset($_POST['mdp']) ? $_POST['mdp'] : '';
-        $remdp=isset($_POST['remdp']) ? $_POST['remdp'] : ''; 
-        echo "$pseudo<br>";
-        if ($mdp == $remdp) {
-        echo "$mdp<br>";
-        echo "$remdp<br>";
-        }else{
-            echo "ca bub";
-        }    
-    /*}*/
-    ?>
 </div>
     <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
 </body>
