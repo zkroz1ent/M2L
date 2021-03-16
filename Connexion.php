@@ -1,6 +1,6 @@
 <?php
 include "inclusion.php";
-session_start ();
+
 
 $pseudo=isset($_POST['pseudo']) ? $_POST['pseudo'] : '';
 $mdp=isset($_POST['mdp']) ? $_POST['mdp'] : '';
@@ -21,10 +21,25 @@ if ($submit) {
     }
     if (count($rows)==1) {
         $_SESSION['username']=$pseudo;
+
+        $sql2 = "select id_usertype from user where pseudo=:pseudo and mdp=:mdp";
+        try {
+            $sth = $dbh->prepare($sql2);
+            $sth->execute(array(
+                ':pseudo' => $pseudo,
+                ':mdp' => $mdp
+            ));
+            $rows = $sth->fetchALL(PDO::FETCH_ASSOC);
+            $id_usertype = $rows[0]['id_usertype'];
+        } catch (PDOException $ex) {
+            die("Erreur lors de la requête SQL : ".$ex->getMessage());
+        }
+        $_SESSION["usertype"] = $id_usertype;
         header("Location: Liste_des_questions.php");
         exit();
     } else {
         $message = "username et/ou password invalide";
+        echo "$message";
     }
 }
 ?>
@@ -58,7 +73,7 @@ if ($submit) {
             <input type="submit" name="submit" value="Se Connecter"> &nbsp;&nbsp; 
             <input type="reset" name="submit" value="Réinitialiation">
         </form>
-
+    
 </div>
     <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
 </body>
