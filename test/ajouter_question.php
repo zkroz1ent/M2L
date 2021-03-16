@@ -1,7 +1,7 @@
 <?php
 include "../inclusion.php";
 date_default_timezone_set('Europe/Paris');
-    $date = date('d-m-y h:i:s');
+    $date = date('20y-m-d h:i:s');
 ?>
 
 
@@ -42,7 +42,9 @@ echo "<br>";
 echo $submit;
 echo "<br>";
 echo $date;
+echo "<br>";
 //date pas bonne changer le format 
+$id_user=1;
 if ($submit){
 
   
@@ -50,15 +52,16 @@ if ($submit){
     
     
         try {
-            $req = $dbh->prepare('INSERT INTO faq(question,date_question) VALUES(:question, :datee)');
+            $req = $dbh->prepare('INSERT INTO faq(question,dat_question , id_user) VALUES(:question, :datee ,:id_user)');
             $req->execute(array(
     
                 'question' => $question,
                 'datee' => $date,
-    
+                 'id_user'=>$id_user,
             ));
     
             echo 'enregistrement effectuéé !';
+            header('Location:listedesquestiontest.php');     
         } catch (PDOException $ex) {
             die("Erreur lors de la requête SQL : " . $ex->getMessage());
         }
