@@ -1,6 +1,8 @@
 <?php
-include "inclusion.php";
-$id_faq = isset($_GET['id_faq']) ? $_GET['id_faq'] : '???';
+include "inclusion.php"
+?>
+<?php
+$id_faq = isset($_GET['id_faq']) ? $_GET['id_faq'] : null;
 $date = date('20y-m-d h:i:s');
 ?>
 
@@ -77,6 +79,7 @@ echo "<td>".$row['question']."</td>";
 
 <label for="submit"></label>
 <input type="submit" name="submit" value="submit">
+<input type="text" name="id" hidden value="<?= $id_faq ?>">
 </form>
 
 <?php
@@ -84,34 +87,32 @@ $reponse = isset($_POST['reponse']) ? $_POST['reponse'] : '';
 $submit = isset($_POST['submit']);
 
 echo $reponse;
-echo $id_faq ;
+echo $id_faq;
 echo "<br>";
 echo $submit;
 echo "<br>";
 echo $date;
 echo "<br>";
 //date pas bonne changer le format 
-$id_user=1;
 if ($submit){
 
   
     
     
     
-        try {
-            $req = $dbh->prepare('UPDATE `faq` SET `reponse` = ":reponse" WHERE `faq`.`id_faq` = ":id_faq";');
-            $req->execute(array(
-    
-                'reponse' => $reponse,
-               
-                 'id_faq' =>$id_faq
-            ));
-    
-            echo 'enregistrement effectuéé !';
-            header('Location:liste_des_questions.php');     
-        } catch (PDOException $ex) {
-            die("Erreur lors de la requête SQL : " . $ex->getMessage());
-        }
+    try {
+        $req = $dbh->prepare('UPDATE  faq SET reponse =:reponse WHERE faq.id_faq=:id_faq');
+        $req->execute(array(
+
+            'reponse' => $reponse,
+             'id_faq'=> $id_faq
+        ));
+
+        echo 'enregistrement effectuéé !';
+      
+    } catch (PDOException $ex) {
+        die("Erreur lors de la requête SQL : " . $ex->getMessage());
+    }
 
 
 
