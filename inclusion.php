@@ -1,6 +1,7 @@
 <?php
+session_start ();
 
-                   
+
 $dsn = 'mysql:host=localhost;dbname=m2l'; // contient le nom du serveur et de la base
 $user = 'root';
 $password = '';
