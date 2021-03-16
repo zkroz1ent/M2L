@@ -45,7 +45,7 @@ $date = date('20y-m-d h:i:s');
 
 
 try {
-$sth = $dbh->prepare("select question FROM faq WHERE id_faq=(:id_faq)");
+$sth = $dbh->prepare("select question FROM faq WHERE id_faq=:id_faq");
 
 $sth->execute(array(
 
@@ -105,7 +105,7 @@ if ($submit){
         $req->execute(array(
 
             'reponse' => $reponse,
-             'id_faq'=> $id_faq
+             'id_faq'=> 31
         ));
 
         echo 'enregistrement effectuéé !';
