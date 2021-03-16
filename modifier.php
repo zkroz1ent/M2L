@@ -1,5 +1,7 @@
 <?php
-include "inclusion.php"
+include "inclusion.php";
+$id_faq = isset($_GET['id_faq']) ? $_GET['id_faq'] : '???';
+$date = date('20y-m-d h:i:s');
 ?>
 
 <!DOCTYPE html>
@@ -22,17 +24,109 @@ include "inclusion.php"
 <p><h2>Modifier une question</h2></p>
 
 <p>
-<label for="posequestion">Question</label> <br>  
-<textarea name="posequestion" id="posequestion" cols="150" rows="15"></textarea><br> <br>
+ 
+
 <br>
 <br>
+<table>
+    <tr>
+         
+          
+            <th>Questions</th>
+            
+        </tr>
+<table>
+<tr>
+<?php
+
+
+
+
+try {
+$sth = $dbh->prepare("select question FROM faq WHERE id_faq=(:id_faq)");
+
+$sth->execute(array(
+
+    ':id_faq' => $id_faq 
+
+
+));
+$row = $sth->fetch(PDO::FETCH_ASSOC);
+} catch (PDOException $ex) {
+die("Erreur lors de la requête SQL : " . $ex->getMessage());
+}
+
+echo "<td>".$row['question']."</td>";  
+
+
+
+?>
+
+    </tr>
+   
+    </table>
 
 
 <label for="Repquestion">Reponse</label> <br>  
-<textarea  name="Repquestion" id="Repquestion" cols="150" rows="15"></textarea><br> <br>
+
+
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+
+
+<textarea name="reponse" id="reponse" cols="30" rows="10" value="reponse"></textarea><br>
+
+<label for="submit"></label>
+<input type="submit" name="submit" value="submit">
+</form>
+
+<?php
+$reponse = isset($_POST['reponse']) ? $_POST['reponse'] : '';
+$submit = isset($_POST['submit']);
+
+echo $reponse;
+echo $id_faq ;
+echo "<br>";
+echo $submit;
+echo "<br>";
+echo $date;
+echo "<br>";
+//date pas bonne changer le format 
+$id_user=1;
+if ($submit){
+
+  
+    
+    
+    
+        try {
+            $req = $dbh->prepare('UPDATE `faq` SET `reponse` = ":reponse" WHERE `faq`.`id_faq` = ":id_faq";');
+            $req->execute(array(
+    
+                'reponse' => $reponse,
+               
+                 'id_faq' =>$id_faq
+            ));
+    
+            echo 'enregistrement effectuéé !';
+            header('Location:liste_des_questions.php');     
+        } catch (PDOException $ex) {
+            die("Erreur lors de la requête SQL : " . $ex->getMessage());
+        }
+
+
+
+
+}else{
+echo "<p>entrez votre question</p>";
+
+}
+?>
+
+
+
+
 <br>
-<button type="submit" name="moderne"><a  href="Liste_des_questions.php">Enregister</button></a> &nbsp&nbsp&nbsp 
-<button type="submit" name="moderne"><a  href="Liste_des_questions.php">annuler</button></a></p>
+
 </div>
 </body>
     <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
