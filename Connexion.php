@@ -22,7 +22,7 @@ if ($submit) {
     if (count($rows)==1) {
         $_SESSION['username']=$pseudo;
 
-        $sql2 = "select id_usertype from user where pseudo=:pseudo and mdp=:mdp";
+        $sql2 = "select id_usertype, id_ligue from user where pseudo=:pseudo and mdp=:mdp";
         try {
             $sth = $dbh->prepare($sql2);
             $sth->execute(array(
@@ -31,10 +31,12 @@ if ($submit) {
             ));
             $rows = $sth->fetchALL(PDO::FETCH_ASSOC);
             $id_usertype = $rows[0]['id_usertype'];
+            $id_ligue = $rows[0]['id_ligue'];
         } catch (PDOException $ex) {
             die("Erreur lors de la requête SQL : ".$ex->getMessage());
         }
         $_SESSION["usertype"] = $id_usertype;
+        $_SESSION["ligue"] = $id_ligue;
         header("Location: Liste_des_questions.php");
         exit();
     } else {

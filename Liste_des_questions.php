@@ -1,6 +1,7 @@
 <?php
 include "inclusion.php";
 $usertype = $_SESSION["usertype"];
+$ligue = $_SESSION["ligue"];
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +36,7 @@ $usertype = $_SESSION["usertype"];
         </tr>
 
         <?php
-            $reponse = $dbh->query('SELECT question , reponse ,pseudo ,dat_question , dat_reponse FROM faq , user WHERE user.id_user=faq.id_user');
+            $reponse = $dbh->query('SELECT question , reponse ,pseudo ,dat_question , dat_reponse FROM faq , user, ligue WHERE user.id_user=faq.id_user AND user.id_ligue=ligue.id_ligue' );
             echo "<tr>"; 
             $i=0;
             while ($donnees = $reponse->fetch())
