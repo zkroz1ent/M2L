@@ -1,10 +1,13 @@
 <?php
 include "inclusion.php"
 ?>
+<<<<<<< HEAD
 <?php
 $id_faq = isset($_GET['id']) ? $_GET['id'] : null;
 $date = date('20y-m-d h:i:s');
 ?>
+=======
+>>>>>>> 3d27209c076fcbac47cd348cf27743625c6ee17f
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -26,10 +29,11 @@ $date = date('20y-m-d h:i:s');
 <p><h2>Modifier une question</h2></p>
 
 <p>
- 
-
+<label for="posequestion">Question</label> <br>  
+<textarea name="posequestion" id="posequestion" cols="150" rows="15"></textarea><br> <br>
 <br>
 <br>
+<<<<<<< HEAD
 <table>
     <tr>
          
@@ -128,8 +132,15 @@ echo "<p>entrez votre question</p>";
 
 
 
-<br>
+=======
 
+
+<label for="Repquestion">Reponse</label> <br>  
+<textarea  name="Repquestion" id="Repquestion" cols="150" rows="15"></textarea><br> <br>
+>>>>>>> 3d27209c076fcbac47cd348cf27743625c6ee17f
+<br>
+<button type="submit" name="moderne"><a  href="Liste_des_questions.php">Enregister</button></a> &nbsp&nbsp&nbsp 
+<button type="submit" name="moderne"><a  href="Liste_des_questions.php">annuler</button></a></p>
 </div>
 </body>
     <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>

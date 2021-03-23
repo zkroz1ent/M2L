@@ -1,7 +1,6 @@
 <?php
 include "inclusion.php";
 $usertype = $_SESSION["usertype"];
-$ligue = $_SESSION["ligue"];
 ?>
 
 <!DOCTYPE html>
@@ -36,13 +35,12 @@ $ligue = $_SESSION["ligue"];
         </tr>
 
         <?php
-            $reponse = $dbh->query('SELECT question , reponse ,pseudo ,dat_question , dat_reponse ,id_faq FROM faq , user, ligue WHERE user.id_user=faq.id_user AND user.id_ligue=ligue.id_ligue' );
+            $reponse = $dbh->query('SELECT question , reponse ,pseudo ,dat_question , dat_reponse FROM faq , user WHERE user.id_user=faq.id_user');
             echo "<tr>"; 
             $i=0;
             while ($donnees = $reponse->fetch())
             {
                 $i++;
-               $id_faq=$donnees['id_faq'];
                 echo "<tr><td>".$i."</td>";
                 echo "<td>".$donnees['pseudo']."</td>";  
                 echo "<td>".$donnees['dat_question']."</td>"; 
@@ -50,7 +48,7 @@ $ligue = $_SESSION["ligue"];
                 echo "<td>".$donnees['dat_reponse']."</td>"; 
                 echo "<td>".$donnees['reponse']."</td>"; 
         ?>
-            <td class="cells"><button type="submit" name="moderne"><a href="modifier.php?id=<?= $id_faq?>"><img src="Img/modifier.png" alt="" ></a></button>&nbsp;<button type="submit" name="moderne"><a href="supprimer.php?id=<?= $id_faq?>"><img src="Img/poub.png" alt=""></a></button></td>
+            <td class="cells"><button type="submit" name="moderne"><a href="modifier.php"><img src="Img/modifier.png" alt="" ></a></button>&nbsp;<button type="submit" name="moderne"><a href="supprimer.php"><img src="Img/poub.png" alt=""></a></button></td>
             </tr>
             <?php
              }
