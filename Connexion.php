@@ -24,7 +24,7 @@ if ($submit) {
         $_SESSION["user"] = $user;
         header("Location: Liste_des_questions.php");
     }
-    $message = "Pseud ou identifiant invalide";
+    $message = "Pseudo ou identifiant invalide";
 }
 ?>
 
