@@ -27,10 +27,10 @@ include "inclusion.php";
             <label for="Ligue">Ligue</label><br>
             <select name="ligue" id="ligue-select">
                 <option value=""selected>--Please choose an option--</option>
-                <option value=5>Football</option>
-                <option value=2>BasketBall</option>
-                <option value=4>Handball</option>
-                <option value=3>Volley</option>
+                <option value= 5 >Football</option>
+                <option value= 2 >BasketBall</option>
+                <option value= 4 >Handball</option>
+                <option value= 3 >Volley</option>
             </select><br><br>
             <p>
                 <input name="inscrire" type="submit" id="s'inscrire" value="s'inscrire">
