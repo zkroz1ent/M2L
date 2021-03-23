@@ -41,7 +41,7 @@ include "inclusion.php";
             if($_POST['passe'] == $_POST['passe2']){           
               
                 $id_usertype=1;
-                $pass = $_POST['passe'];
+                $mdp = $_POST['passe'];
                 $hash=password_hash($mdp, PASSWORD_BCRYPT);
                 try {          
                     $req = $dbh->prepare('INSERT INTO user(pseudo, mdp, mail, id_usertype, id_ligue) VALUES(:pseudo, :mdp, :mail, :id_usertype, :id_ligue)');

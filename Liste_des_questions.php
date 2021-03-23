@@ -30,7 +30,7 @@ include "inclusion.php";
             <th>Date Réponse</th>
             <th>Réponse</th>
             <?php
-                if ($_SESSION["user"]["id_usertype"] != "1") {
+                if ($_SESSION["user"]["id_usertype"] != 1) {
                     echo "<th>"."Action"."</th>";
                 }    
             ?>    
