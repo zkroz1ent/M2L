@@ -2,7 +2,7 @@
 include "inclusion.php"
 ?>
 <?php
-$id_faq = isset($_GET['id_faq']) ? $_GET['id_faq'] : null;
+$id_faq = isset($_GET['id']) ? $_GET['id'] : null;
 $date = date('20y-m-d h:i:s');
 ?>
 
@@ -45,11 +45,12 @@ $date = date('20y-m-d h:i:s');
 
 
 try {
-$sth = $dbh->prepare("select question FROM faq WHERE id_faq=:id_faq");
+  
+$sth=$dbh->prepare('select question FROM faq WHERE faq.id_faq=:id_faq');
 
 $sth->execute(array(
 
-    ':id_faq' => $id_faq 
+    'id_faq' => $id_faq
 
 
 ));
@@ -85,7 +86,7 @@ echo "<td>".$row['question']."</td>";
 <?php
 $reponse = isset($_POST['reponse']) ? $_POST['reponse'] : '';
 $submit = isset($_POST['submit']);
-
+$id_faq = isset($_POST['id']) ? $_POST['id'] : null;
 echo $reponse;
 echo $id_faq;
 echo "<br>";
@@ -97,19 +98,20 @@ echo "<br>";
 if ($submit){
 
   
-    
+ 
     
     
     try {
+        $idfaq=$id_faq ;
         $req = $dbh->prepare('UPDATE  faq SET reponse =:reponse WHERE faq.id_faq=:id_faq');
         $req->execute(array(
 
             'reponse' => $reponse,
-             'id_faq'=> 31
+             'id_faq'=> $id_faq
         ));
 
         echo 'enregistrement effectuéé !';
-      
+        header('Location:Liste_des_questions.php');     
     } catch (PDOException $ex) {
         die("Erreur lors de la requête SQL : " . $ex->getMessage());
     }
