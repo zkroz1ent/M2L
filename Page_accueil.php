@@ -13,14 +13,21 @@ include "inclusion.php"
 <body>
     <ul>
         <li><a class="active" href="Page_accueil.php">Accueil</a></li>
-        <li class="right"><a href="Inscription.php">S'inscrire</a></li>
-        <li class="right"><a href="Connexion.php">Se connecter</a></li>
+        <?php
+        if (isset($_SESSION["user"])) {
+            echo "<li class=\"right\" ><a href=\"Deconnexion.php\">Se deconnecter</a></li>";
+            echo "<li class=\"right\" ><a href=\"Liste_des_questions.php\">FAQ</a></li>";
+        }else{
+            echo "<li class=\"right\"><a href=\"Inscription.php\">S'inscrire</a></li>";
+            echo "<li class=\"right\"><a href=\"Connexion.php\">Se connecter</a></li>";
+        }
+        ?>
     </ul>
 
     <div class="marg">
         <h1>Maison des ligues de Lorraine</h1>
         <h2>Accueil</h2>
-        <h3>Bienvenue  sur la FAQ da la maison des ligues de Lorraine</h3>
+        <h3>Bienvenue  sur la FAQ de la maison des ligues de Lorraine</h3>
         <p><img class="imge" src="Img\mdl.png" alt="FATAL ERROR"></p>   
         <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
     </div>

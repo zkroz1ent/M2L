@@ -21,7 +21,7 @@ if ($submit) {
         die("Erreur lors de la requête SQL : ".$ex->getMessage());
     }
     $hashed_password = password_hash($mdp, PASSWORD_DEFAULT);
-    if ($pseudo == $user["pseudo"] && password_verify($password,$user["mdp"])){
+    if ($pseudo == $user["pseudo"] && password_verify($mdp,$user["mdp"])){
         $_SESSION["user"] = $user;
         header("Location: Liste_des_questions.php");
     }

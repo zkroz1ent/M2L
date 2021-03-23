@@ -1,5 +1,6 @@
 <?php
-include "inclusion.php"
+include "inclusion.php";
+unset($_SESSION['user']);
 ?>
 
 <!DOCTYPE html>
