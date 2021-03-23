@@ -66,7 +66,8 @@ $sql="SELECT id_faq, pseudo, question, dat_question, reponse, dat_reponse FROM f
                 echo "<td>".$donnees['reponse']."</td>";
                 if ($_SESSION["user"]["id_usertype"] != "1") {
                 ?>               
-                <td class="cells"><button type="submit" name="moderne"><a href="modifier.php?id=<?=$id_faq?>"><img src="Img/modifier.png" alt=" "></a></button>&nbsp;<button type="submit" name=moderne><a href="supprimer.php?id=<?=$id_faq?>"><img src="Img/poub.png" alt=" "></a></button></td>;
+                <td class="cells"><button type="submit" name="ajout"><a href="modifier.php?id=<?=$donnees['id_faq']?>"><img src="Img/modifier.png" alt=" "></a>
+               </button>&nbsp;<button type="submit" name="supprimer"><a href="supprimer.php?id=<?=$donnees['id_faq']?>"><img src="Img/poub.png" alt=" "></a></button></td>
                 <?php  
                 }
                 echo "</tr>"; 
