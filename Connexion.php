@@ -5,44 +5,27 @@ include "inclusion.php";
 $pseudo=isset($_POST['pseudo']) ? $_POST['pseudo'] : '';
 $mdp=isset($_POST['mdp']) ? $_POST['mdp'] : '';
 $submit = isset($_POST['submit']);
+$message = " ";
     
 
 if ($submit) {
-    $sql = "select * from user where pseudo=:pseudo and mdp=:mdp";
+    
+    $sql = "select * from user where pseudo=:pseudo";
     try {
         $sth = $dbh->prepare($sql);
         $sth->execute(array(
-      ':pseudo' => $pseudo,
-      ':mdp' => $mdp
+      ':pseudo' => $pseudo
     ));
-        $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
+        $user = $sth->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $ex) {
         die("Erreur lors de la requête SQL : ".$ex->getMessage());
     }
-    if (count($rows)==1) {
-        $_SESSION['username']=$pseudo;
-
-        $sql2 = "select id_usertype, id_ligue from user where pseudo=:pseudo and mdp=:mdp";
-        try {
-            $sth = $dbh->prepare($sql2);
-            $sth->execute(array(
-                ':pseudo' => $pseudo,
-                ':mdp' => $mdp
-            ));
-            $rows = $sth->fetchALL(PDO::FETCH_ASSOC);
-            $id_usertype = $rows[0]['id_usertype'];
-            $id_ligue = $rows[0]['id_ligue'];
-        } catch (PDOException $ex) {
-            die("Erreur lors de la requête SQL : ".$ex->getMessage());
-        }
-        $_SESSION["usertype"] = $id_usertype;
-        $_SESSION["ligue"] = $id_ligue;
+    $hashed_password = password_hash($mdp, PASSWORD_DEFAULT);
+    if ($pseudo == $user["pseudo"] && password_verify($password,$user["mdp"])){
+        $_SESSION["user"] = $user;
         header("Location: Liste_des_questions.php");
-        exit();
-    } else {
-        $message = "username et/ou password invalide";
-        echo "$message";
     }
+    $message = "Pseud ou identifiant invalide";
 }
 ?>
 
@@ -75,7 +58,9 @@ if ($submit) {
             <input type="submit" name="submit" value="Se Connecter"> &nbsp;&nbsp; 
             <input type="reset" name="submit" value="Réinitialiation">
         </form>
-    
+    <?php    
+        echo "$message";
+    ?>    
 </div>
     <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
 </body>
