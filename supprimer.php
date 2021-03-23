@@ -1,5 +1,7 @@
 <?php
-    include "inclusion.php"
+include "inclusion.php";
+$usertype = $_SESSION["usertype"];
+$ligue = $_SESSION["ligue"];
 ?>
 
 <!DOCTYPE html>
@@ -7,35 +9,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supprimer</title>
+    <title>Liste des questions</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <ul>
-        <li><a href="Connexion.php">FAQ</a></li>
-        <li class="right"><a href="Deconnexion.php">Se déconnecter</a></li>
-       
-    </ul>
-<div class="marg">
+        <li><a href="Page_accueil.php">Accueil</a></li>
+        <li class="right" ><a href="Deconnexion.php">Se deconnecter</a></li>    
+</ul>
 
-    <h1>M2L</h1>
-    <h3>Supprimer une question</h3>
+<?php
+    if ($usertype != "1") {
+        ?>
+        <div class="marg">
+        <h1>Liste des questions</h1>
+        <br><br>
+        <table>
+        <tr>
+            <th>Nr</th>
+            <th>Auteur</th>
+            <th>Date Questions</th>
+            <th>Questions</th>
+            <th>Date Réponse</th>
+            <th>Réponse</th>
+            <th>Action</th>
+        </tr>
 
-    <p>
-    <label for="posequestion">Question</label> <br>  
+        <?php
+            $reponse = $dbh->query('SELECT question , reponse ,pseudo ,dat_question , dat_reponse ,id_faq FROM faq , user, ligue WHERE user.id_user=faq.id_user AND user.id_ligue=ligue.id_ligue' );
+            echo "<tr>"; 
+            $i=0;
+            while ($donnees = $reponse->fetch())
+            {
+                $i++;
+               $id_faq=$donnees['id_faq'];
+                echo "<tr><td>".$i."</td>";
+                echo "<td>".$donnees['pseudo']."</td>";  
+                echo "<td>".$donnees['dat_question']."</td>"; 
+                echo "<td>".$donnees['question']."</td>"; 
+                echo "<td>".$donnees['dat_reponse']."</td>"; 
+                echo "<td>".$donnees['reponse']."</td>"; 
+        ?>
+            <td class="cells"><button type="submit" name="moderne"><a href="modifier.php?id=<?= $id_faq?>"><img src="Img/modifier.png" alt="" ></a></button>&nbsp;<button type="submit" name="moderne"><a href="supprimer.php?id=<?= $id_faq?>"><img src="Img/poub.png" alt=""></a></button></td>
+            </tr>
+            <?php
+             }
+            ?>
+        </table>
+        <p><a href="ajouter_question.php">Nouvelle Question</a></p>
+        </div>
     <?php
-        echo "$question";
-    ?>
-    <textarea name="posequestion" id="posequestion" cols="150" rows="15"></textarea><br> <br> <!-- il faut que la question ne soit pas modifiable  -->
-    <br>
-    <br>
-
-    <label for="Repquestion">Reponse</label> <br>  
+    }else {
+        ?>
+        <div class="marg">
+        <h1>Liste des questions</h1>
+        <br><br>
+        <table>
+        <tr>
+                <th>Nr</th>
+                <th>Auteur</th>
+                <th>Date Questions</th>
+                <th>Questions</th>
+                <th>Date Réponse</th>
+                <th>Réponse</th>
+            </tr>
+    
     <?php
-        echo "$reponse";
+    $reponse = $dbh->query('SELECT question , reponse ,pseudo ,dat_question , dat_reponse FROM faq , user WHERE user.id_user=faq.id_user');
+    echo "<tr>"; 
+    $i=0;
+        while ($donnees = $reponse->fetch())
+        {
+           
+    $i++;
+    
+          echo "<tr><td>".$i."</td>";
+          echo "<td>".$donnees['pseudo']."</td>";  
+          echo "<td>".$donnees['dat_question']."</td>"; 
+          echo "<td>".$donnees['question']."</td>"; 
+          echo "<td>".$donnees['dat_reponse']."</td>"; 
+          echo "<td>".$donnees['reponse']."</td>"; 
+        ?>
+        </tr>
+        <?php
+        }
+        ?>
+        </table>
+        <p><a href="ajouter_question.php">Nouvelle Question</a></p>
+    </div>
+    <?php
+        }   
     ?>
-    <textarea  name="Repquestion" id="Repquestion" cols="150" rows="15"></textarea><br> <br>
-    <br>
+    <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
+</body>
+
     <button type="submit" name="moderne"><a href="Liste_des_questions.php">Supprimer</a></button> &nbsp;&nbsp;&nbsp; 
     <button type="submit" name="moderne"><a href="Liste_des_questions.php">Annuler</a></button>
     </p>
@@ -44,12 +111,7 @@
 
 
 </body>
-    <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
-    <?php
-    /*   si on veux faire les boutons en input 
-    <input type="submit" name="submit" value="Enregistrer"> &nbsp;&nbsp;&nbsp; 
-    <input type="submit" name="submit" value="Annuler"> */
-    ?>
+   
 </html>
 
 

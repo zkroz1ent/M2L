@@ -103,11 +103,13 @@ if ($submit){
     
     try {
         $idfaq=$id_faq ;
-        $req = $dbh->prepare('UPDATE  faq SET reponse =:reponse WHERE faq.id_faq=:id_faq');
+        $req = $dbh->prepare('UPDATE  faq SET reponse =:reponse , dat_reponse =:date WHERE faq.id_faq=:id_faq');
         $req->execute(array(
 
             'reponse' => $reponse,
-             'id_faq'=> $id_faq
+             'id_faq'=> $id_faq,
+             'date' => $date 
+            
         ));
 
         echo 'enregistrement effectuéé !';
