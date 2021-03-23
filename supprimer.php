@@ -54,7 +54,6 @@ $id_faq = isset($_GET['id']) ? $_GET['id'] : null;
                 die("Erreur lors de la requête SQL : " . $ex->getMessage());
             }
 
-
             echo "<td>" . $row['pseudo'] . "</td>";
             echo "<td>" . $row['dat_question'] . "</td>";
             echo "<td>" . $row['question'] . "</td>";
@@ -84,11 +83,6 @@ $id_faq = isset($_GET['id']) ? $_GET['id'] : null;
 
 
     if ($submit) {
-
-
-
-
-
         try {
             $id_faq;
             $req = $dbh->prepare('DELETE FROM  faq WHERE faq.id_faq=:id_faq');

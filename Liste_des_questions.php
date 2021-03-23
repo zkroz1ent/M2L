@@ -1,5 +1,12 @@
 <?php
 include "inclusion.php";
+$sql="SELECT id_faq, pseudo, question, dat_question, reponse, dat_reponse FROM faq, user WHERE faq.id_user = user.id_user";
+    try {
+        $sth = $dbh->query($sql);
+        $faq = $sth->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $ex) {
+        die("Erreur lors de la requête SQL : " . $ex->getMessage());
+    }
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +27,7 @@ include "inclusion.php";
         ?>
         <div class="marg">
         <h1>Liste des questions</h1>
-        <br><br>
+        <br>
         <table>
         <tr>
             <th>Nr</th>
@@ -38,12 +45,19 @@ include "inclusion.php";
 
         </tr>
         <?php
-            $reponse = $dbh->query('SELECT question , reponse ,pseudo ,dat_question , dat_reponse ,id_faq FROM faq , user, ligue WHERE user.id_user=faq.id_user AND user.id_ligue=ligue.id_ligue' );
+        foreach($faq as $donnees){
+            $sql="SELECT id_ligue FROM user, faq WHERE user.id_user = faq.id_user AND faq.id_faq=:id_faq";
+            try {
+                $sth = $dbh->prepare($sql);
+                $sth->execute(array(
+                    ":id_faq" => $donnees['id_faq']
+                ));
+                $id_ligue = $sth->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $ex) {
+                die("Erreur lors de la requête SQL : " . $ex->getMessage());
+            }
+            if($_SESSION['user']['id_ligue']==$id_ligue['id_ligue'] || $_SESSION['user']['id_usertype'] == 3){
             echo "<tr>"; 
-            $i=0;
-            while ($donnees = $reponse->fetch())
-            {
-                $i++;
                 echo "<td>".$donnees['id_faq']."</td>";
                 echo "<td>".$donnees['pseudo']."</td>";  
                 echo "<td>".$donnees['dat_question']."</td>"; 
@@ -51,14 +65,13 @@ include "inclusion.php";
                 echo "<td>".$donnees['dat_reponse']."</td>"; 
                 echo "<td>".$donnees['reponse']."</td>";
                 if ($_SESSION["user"]["id_usertype"] != "1") {
-        ?>             
-                    <td class="cells"><button type="submit" name="moderne"><a href="modifier.php?id=<?= $id_faq?>"><img src="Img/modifier.png" alt="" ></a></button>&nbsp;<button type="submit" name="moderne"><a href="supprimer.php?id=<?= $id_faq?>"><img src="Img/poub.png" alt=""></a></button></td>
-            <?php   
+                ?>               
+                <td class="cells"><button type="submit" name="moderne"><a href="modifier.php?id=<?=$id_faq?>"><img src="Img/modifier.png" alt=" "></a></button>&nbsp;<button type="submit" name=moderne><a href="supprimer.php?id=<?=$id_faq?>"><img src="Img/poub.png" alt=" "></a></button></td>;
+                <?php  
                 }
-        ?>
-            </tr>
-            <?php
-             }
+                echo "</tr>"; 
+            }
+        }
             ?>
         </table>
         </div>
