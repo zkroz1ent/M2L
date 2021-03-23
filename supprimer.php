@@ -2,116 +2,113 @@
 include "inclusion.php";
 $usertype = $_SESSION["usertype"];
 $ligue = $_SESSION["ligue"];
+$id_faq = isset($_GET['id']) ? $_GET['id'] : null;
+
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des questions</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
-<ul>
-        <li><a href="Page_accueil.php">Accueil</a></li>
-        <li class="right" ><a href="Deconnexion.php">Se deconnecter</a></li>    
-</ul>
 
-<?php
-    if ($usertype != "1") {
-        ?>
-        <div class="marg">
-        <h1>Liste des questions</h1>
-        <br><br>
-        <table>
+<body>
+    <ul>
+        <li><a href="Page_accueil.php">Accueil</a></li>
+        <li class="right"><a href="Deconnexion.php">Se deconnecter</a></li>
+    </ul>
+
+    <table>
         <tr>
-            <th>Nr</th>
+
             <th>Auteur</th>
             <th>Date Questions</th>
             <th>Questions</th>
             <th>Date Réponse</th>
             <th>Réponse</th>
-            <th>Action</th>
-        </tr>
 
+        </tr>
         <?php
-            $reponse = $dbh->query('SELECT question , reponse ,pseudo ,dat_question , dat_reponse ,id_faq FROM faq , user, ligue WHERE user.id_user=faq.id_user AND user.id_ligue=ligue.id_ligue' );
-            echo "<tr>"; 
-            $i=0;
-            while ($donnees = $reponse->fetch())
-            {
-                $i++;
-               $id_faq=$donnees['id_faq'];
-                echo "<tr><td>".$i."</td>";
-                echo "<td>".$donnees['pseudo']."</td>";  
-                echo "<td>".$donnees['dat_question']."</td>"; 
-                echo "<td>".$donnees['question']."</td>"; 
-                echo "<td>".$donnees['dat_reponse']."</td>"; 
-                echo "<td>".$donnees['reponse']."</td>"; 
+        if ($usertype != "1") {
         ?>
-            <td class="cells"><button type="submit" name="moderne"><a href="modifier.php?id=<?= $id_faq?>"><img src="Img/modifier.png" alt="" ></a></button>&nbsp;<button type="submit" name="moderne"><a href="supprimer.php?id=<?= $id_faq?>"><img src="Img/poub.png" alt=""></a></button></td>
-            </tr>
+            <div class="marg">
             <?php
-             }
-            ?>
-        </table>
-        <p><a href="ajouter_question.php">Nouvelle Question</a></p>
-        </div>
-    <?php
-    }else {
-        ?>
-        <div class="marg">
-        <h1>Liste des questions</h1>
-        <br><br>
-        <table>
-        <tr>
-                <th>Nr</th>
-                <th>Auteur</th>
-                <th>Date Questions</th>
-                <th>Questions</th>
-                <th>Date Réponse</th>
-                <th>Réponse</th>
-            </tr>
-    
-    <?php
-    $reponse = $dbh->query('SELECT question , reponse ,pseudo ,dat_question , dat_reponse FROM faq , user WHERE user.id_user=faq.id_user');
-    echo "<tr>"; 
-    $i=0;
-        while ($donnees = $reponse->fetch())
-        {
-           
-    $i++;
-    
-          echo "<tr><td>".$i."</td>";
-          echo "<td>".$donnees['pseudo']."</td>";  
-          echo "<td>".$donnees['dat_question']."</td>"; 
-          echo "<td>".$donnees['question']."</td>"; 
-          echo "<td>".$donnees['dat_reponse']."</td>"; 
-          echo "<td>".$donnees['reponse']."</td>"; 
-        ?>
-        </tr>
-        <?php
+            try {
+
+                $sth = $dbh->prepare('SELECT question , reponse ,pseudo ,dat_question , dat_reponse ,id_faq FROM faq , user, ligue WHERE user.id_user=faq.id_user AND user.id_ligue=ligue.id_ligue and faq.id_faq=:id_faq');
+
+                $sth->execute(array(
+
+                    'id_faq' => $id_faq
+
+
+
+
+                ));
+                $row = $sth->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $ex) {
+                die("Erreur lors de la requête SQL : " . $ex->getMessage());
+            }
+
+
+            echo "<td>" . $row['pseudo'] . "</td>";
+            echo "<td>" . $row['dat_question'] . "</td>";
+            echo "<td>" . $row['question'] . "</td>";
+            echo "<td>" . $row['dat_reponse'] . "</td>";
+            echo "<td>" . $row['reponse'] . "</td></tr>";
         }
-        ?>
-        </table>
-        <p><a href="ajouter_question.php">Nouvelle Question</a></p>
-    </div>
+            ?>
+
+    </table>
+
+
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <label for="submit"></label>
+        <button type="button" name="moderne"><a href="Liste_des_questions.php">Annuler</a></button>
+        <input type="submit" name="submit" value="supprimer">
+        <input type="text" name="id" hidden value="<?= $id_faq ?>">
+    </form>
+
     <?php
-        }   
+    $submit = isset($_POST['submit']);
+    $id_faq = isset($_POST['id']) ? $_POST['id'] : null;
+
+    echo $id_faq;
+    echo "<br>";
+    echo $submit;
+    echo "<br>";
+
+
+    if ($submit) {
+
+
+
+
+
+        try {
+            $id_faq;
+            $req = $dbh->prepare('DELETE FROM  faq WHERE faq.id_faq=:id_faq');
+            $req->execute(array(
+
+                'id_faq' => $id_faq
+
+            ));
+
+            echo 'supression effectuée !';
+            header('Location:Liste_des_questions.php');
+        } catch (PDOException $ex) {
+            die("Erreur lors de la requête SQL : " . $ex->getMessage());
+        }
+    } else {
+        echo "<p>supression de la question</p>";
+    }
     ?>
-    <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
-</body>
-
-    <button type="submit" name="moderne"><a href="Liste_des_questions.php">Supprimer</a></button> &nbsp;&nbsp;&nbsp; 
-    <button type="submit" name="moderne"><a href="Liste_des_questions.php">Annuler</a></button>
-    </p>
-
-</div>
 
 
 </body>
-   
+
 </html>
-
-
