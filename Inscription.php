@@ -42,7 +42,7 @@ include "inclusion.php";
               
                 $id_usertype=1;
                 $pass = $_POST['passe'];
-                $hash = password_hash($pass,PASSWORD_BCRYPT,['cost' => 5]) ;
+                $hash=password_hash($mdp, PASSWORD_BCRYPT);
                 try {          
                     $req = $dbh->prepare('INSERT INTO user(pseudo, mdp, mail, id_usertype, id_ligue) VALUES(:pseudo, :mdp, :mail, :id_usertype, :id_ligue)');
                     $req->execute(array(

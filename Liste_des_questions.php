@@ -1,7 +1,5 @@
 <?php
 include "inclusion.php";
-$usertype = $_SESSION["usertype"];
-$ligue = $_SESSION["ligue"];
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +17,7 @@ $ligue = $_SESSION["ligue"];
 </ul>
 
 <?php
-    if ($usertype != "1") {
+    if ($_SESSION["user"]["id_usertype"] != "1") {
         ?>
         <div class="marg">
         <h1>Liste des questions</h1>

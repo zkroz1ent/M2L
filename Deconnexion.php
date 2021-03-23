@@ -20,7 +20,7 @@ include "inclusion.php"
     <div class="marg">
         <h1>M2L</h1>
         <h2>Déconnexion</h2>
-        <p>Jef, vous êtes bien déconnecté ! </p>
+        <p>Vous êtes bien déconnecté ! </p>
         <a href="Page_accueil.php">Revenir à la page d'accueil</a>
     </div>
 
