@@ -87,13 +87,7 @@ echo "<td>".$row['question']."</td>";
 $reponse = isset($_POST['reponse']) ? $_POST['reponse'] : '';
 $submit = isset($_POST['submit']);
 $id_faq = isset($_POST['id']) ? $_POST['id'] : null;
-echo $reponse;
-echo $id_faq;
-echo "<br>";
-echo $submit;
-echo "<br>";
-echo $date;
-echo "<br>";
+
 //date pas bonne changer le format 
 if ($submit){
 

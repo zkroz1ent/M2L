@@ -76,10 +76,7 @@ $id_faq = isset($_GET['id']) ? $_GET['id'] : null;
     $submit = isset($_POST['submit']);
     $id_faq = isset($_POST['id']) ? $_POST['id'] : null;
 
-    echo $id_faq;
-    echo "<br>";
-    echo $submit;
-    echo "<br>";
+  
 
 
     if ($submit) {

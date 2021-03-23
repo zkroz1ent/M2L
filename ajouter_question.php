@@ -37,12 +37,7 @@ date_default_timezone_set('Europe/Paris');
 $question = isset($_POST['question']) ? $_POST['question'] : '';
 $submit = isset($_POST['submit']);
 
-echo $question;
-echo "<br>";
-echo $submit;
-echo "<br>";
-echo $date;
-echo "<br>";
+
 
 $id_user=1;
 if ($submit){
