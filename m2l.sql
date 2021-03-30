@@ -44,7 +44,7 @@ CREATE TABLE `faq` (
 
 INSERT INTO `faq` (`id_faq`, `question`, `reponse`, `dat_question`, `dat_reponse`, `id_user`) VALUES
 (1, 'Quelle est la taille d une cage de foot ?', NULL, '2021-01-15 10:30:00', NULL, 3),
-(2, 'Quelle est la durée d un match de handball ?', 'Deux mi-temps de 30 minutes', '2021-01-15 10:35:00', NULL, 6),
+(2, 'Quelle est la durée d un match de handball ?', NULL, '2021-01-15 10:35:00', NULL, 6),
 (3, 'Quel est le nombre de joueurs dans une équipe de handball', NULL, '2021-01-15 12:15:00', NULL, 7),
 (16, 'que veux dire la règle \" marcher\" ?', NULL, '2021-03-30 01:58:06', NULL, 47),
 (17, 'Comment les points se comptent ?', NULL, '2021-03-30 01:58:39', NULL, 46);
