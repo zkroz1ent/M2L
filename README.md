@@ -1,7 +1,8 @@
 # M2L
-La Maison des Ligues de Lorraine (M2L)
 
-Lien vers la documentation complète : https://drive.google.com/file/d/14KqoChCmhOI7EG-yNp_kZ-WQaN8HYjWR/view?usp=sharing
+Lien vers la documentation complète : https://drive.google.com/file/d/1VZoKIBjy0jH20dFqoYSC8y_re7gfmNuR/view?usp=sharing
+
+La Maison des Ligues de Lorraine (M2L)
 
 La Maison des Ligues de Lorraine (M2L) est une structure financée par le Conseil Régional de
 Lorraine dont l'administration est déléguée au Comité Régional Olympique et Sportif de Lorraine
