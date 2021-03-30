@@ -29,7 +29,7 @@ include "inclusion.php"
         <h2>Accueil</h2>
         <h3>Bienvenue  sur la FAQ de la maison des ligues de Lorraine</h3>
         <p><img class="imge" src="Img\mdl.png" alt="FATAL ERROR"></p>   
-        <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
     </div>
+    <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
 </body>
 </html>
