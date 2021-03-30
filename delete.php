@@ -1,8 +1,6 @@
 <?php
 include "inclusion.php";
 $usertype = $_SESSION["usertype"];
-
-//$ligue = $_SESSION["ligue"];
 $id_faq = isset($_GET['id']) ? $_GET['id'] : null;
 
 ?>

@@ -6,6 +6,7 @@ $id_faq = isset($_GET['id']) ? $_GET['id'] : null;
 $date = date('20y-m-d H:i:s');
 ?>
 
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
