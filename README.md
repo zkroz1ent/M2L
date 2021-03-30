@@ -1,6 +1,7 @@
 # M2L
 
 Lien vers la documentation complète : https://drive.google.com/file/d/1q2BJZZiQyQnOmnatw_lFrMtlWe4lCSYt/view?usp=sharing
+La documentation est aussi disponible sur ce GitHub dans le dossier M2L/Documents/Documentation groupe 2.docx
 
 La Maison des Ligues de Lorraine (M2L)
 
