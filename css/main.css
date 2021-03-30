@@ -100,3 +100,22 @@ ul {
 p,h1 {
   text-align: center;
 }
+.clignote {
+  animation-duration: 2.8s;
+  animation-name: clignoter;
+  animation-iteration-count: infinite;
+  transition: none;
+  color: red;
+}
+
+@keyframes clignoter {
+  0% {
+      opacity: 1;
+  }
+  40% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}

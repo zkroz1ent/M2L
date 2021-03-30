@@ -20,7 +20,7 @@ $id_faq = isset($_GET['id']) ? $_GET['id'] : null;
         <li class="right"><a href="logout.php">Se deconnecter</a></li>
     </ul>
 <! -- corps de la page  -->
-    <h1>Attention!! Si vous validez la suppression sera immédiate et définitive</h1>
+    <h1 class="clignote">Attention!! Si vous validez la suppression sera immédiate et définitive</h1>
     <table>
         <tr>
             <th>Auteur</th>
