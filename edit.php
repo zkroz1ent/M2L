@@ -16,8 +16,8 @@ $date = date('20y-m-d h:i:s');
 </head>
 <body>
 <ul>
-        <li><a href="Liste_des_questions.php">FAQ</a></li>
-        <li class="right" ><a href="Deconnexion.php">Se deconnecter</a></li>
+        <li><a href="Liste.php">FAQ</a></li>
+        <li class="right" ><a href="logout.php">Se deconnecter</a></li>
        
 </ul>
   
@@ -88,7 +88,6 @@ $reponse = isset($_POST['reponse']) ? $_POST['reponse'] : '';
 $submit = isset($_POST['submit']);
 $id_faq = isset($_POST['id']) ? $_POST['id'] : null;
 
-//date pas bonne changer le format 
 if ($submit){
 
   
@@ -107,7 +106,7 @@ if ($submit){
         ));
 
         echo 'enregistrement effectuéé !';
-        header('Location:Liste_des_questions.php');     
+        header('Location:Liste.php');     
     } catch (PDOException $ex) {
         die("Erreur lors de la requête SQL : " . $ex->getMessage());
     }

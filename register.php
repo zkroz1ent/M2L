@@ -12,9 +12,9 @@ include "inclusion.php";
 </head>
 <body>
     <ul>
-        <li><a href="Page_accueil.php">Accueil</a></li>
-        <li class="right"><a class="active" href="Inscription.php">S'inscrire</a></li>
-        <li class="right"><a href="Connexion.php">Se connecter</a></li>
+        <li><a href="index.php">Accueil</a></li>
+        <li class="right"><a class="active" href="register.php">S'inscrire</a></li>
+        <li class="right"><a href="login.php">Se connecter</a></li>
     </ul>
     <div class="marg">
         <h1>M2L</h1>
@@ -57,12 +57,6 @@ include "inclusion.php";
                 } catch (PDOException $ex) {
                     die("Erreur lors de la requête SQL : ".$ex->getMessage());
                 }
-                echo "oui";
-
-
-            }else{
-                echo "ca bug";
-            }
         }
         ?>
     </div>

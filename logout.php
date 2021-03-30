@@ -13,16 +13,16 @@ unset($_SESSION['user']);
 </head>
 <body>
     <ul>
-        <li><a href="Page_accueil.php">Accueil</a></li>
-        <li class="right"><a href="Inscription.php">S'inscrire</a></li>
-        <li class="right"><a href="Connexion.php">Se connecter</a></li>
+        <li><a href="index.php">Accueil</a></li>
+        <li class="right"><a href="register.php">S'inscrire</a></li>
+        <li class="right"><a href="login.php">Se connecter</a></li>
        
     </ul>
     <div class="marg">
         <h1>M2L</h1>
         <h2>Déconnexion</h2>
         <p>Vous êtes bien déconnecté ! </p>
-        <a href="Page_accueil.php">Revenir à la page d'accueil</a>
+        <a href="index.php">Revenir à la page d'accueil</a>
     </div>
 
 </body>

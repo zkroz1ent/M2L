@@ -1,7 +1,8 @@
 <?php
 include "inclusion.php";
 $usertype = $_SESSION["usertype"];
-$ligue = $_SESSION["ligue"];
+
+//$ligue = $_SESSION["ligue"];
 $id_faq = isset($_GET['id']) ? $_GET['id'] : null;
 
 ?>
@@ -18,8 +19,8 @@ $id_faq = isset($_GET['id']) ? $_GET['id'] : null;
 
 <body>
     <ul>
-        <li><a href="Page_accueil.php">Accueil</a></li>
-        <li class="right"><a href="Deconnexion.php">Se deconnecter</a></li>
+        <li><a href="index.php">Accueil</a></li>
+        <li class="right"><a href="logout.php">Se deconnecter</a></li>
     </ul>
 
     <table>
@@ -64,14 +65,14 @@ $id_faq = isset($_GET['id']) ? $_GET['id'] : null;
 
     </table>
 
-
+    <div class="marg">
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <label for="submit"></label>
-        <button type="button" name="moderne"><a href="Liste_des_questions.php">Annuler</a></button>
+        <button type="button" name="moderne"><a href="Liste.php">Annuler</a></button>
         <input type="submit" name="submit" value="supprimer">
         <input type="text" name="id" hidden value="<?= $id_faq ?>">
     </form>
-
+</div>
     <?php
     $submit = isset($_POST['submit']);
     $id_faq = isset($_POST['id']) ? $_POST['id'] : null;
@@ -90,7 +91,7 @@ $id_faq = isset($_GET['id']) ? $_GET['id'] : null;
             ));
 
             echo 'supression effectuée !';
-            header('Location:Liste_des_questions.php');
+            header('Location:Liste.php');
         } catch (PDOException $ex) {
             die("Erreur lors de la requête SQL : " . $ex->getMessage());
         }

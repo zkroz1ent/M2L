@@ -15,8 +15,8 @@ date_default_timezone_set('Europe/Paris');
 </head>
 <body>
 <ul>
-        <li><a href="Liste_des_questions.php">FAQ</a></li>
-        <li class="right" ><a href="Deconnexion.php">Se deconnecter</a></li>
+        <li><a href="Liste.php">FAQ</a></li>
+        <li class="right" ><a href="logout.php">Se deconnecter</a></li>
        
 </ul>
 
@@ -46,7 +46,7 @@ if ($submit){
             ));
     
             echo 'enregistrement effectuéé !';
-            header('Location:liste_des_questions.php');     
+            header('Location:liste.php');     
         } catch (PDOException $ex) {
             die("Erreur lors de la requête SQL : " . $ex->getMessage());
         }

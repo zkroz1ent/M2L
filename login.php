@@ -22,7 +22,7 @@ if ($submit) {
     }
     if ($pseudo == $user["pseudo"] && password_verify($mdp,$user["mdp"])){
         $_SESSION["user"] = $user;
-        header("Location: Liste_des_questions.php");
+        header("Location: liste.php");
     }
     $message = "Pseudo ou identifiant invalide";
 }
@@ -38,9 +38,9 @@ if ($submit) {
 </head>
 <body>
     <ul>
-        <li><a href="Page_accueil.php">Accueil</a></li>
-        <li class="right"><a href="Inscription.php">S'inscrire</a></li>
-        <li class="right"><a class="active" href="Connexion.php">Se connecter</a></li>
+        <li><a href="index.php">Accueil</a></li>
+        <li class="right"><a href="register.php">S'inscrire</a></li>
+        <li class="right"><a class="active" href="login.php">Se connecter</a></li>
        
     </ul>
 <div class="marg">

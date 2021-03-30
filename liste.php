@@ -19,8 +19,8 @@ $sql="SELECT id_faq, pseudo, question, dat_question, reponse, dat_reponse FROM f
 </head>
 <body>
 <ul>
-        <li><a href="Page_accueil.php">Accueil</a></li>
-        <li class="right" ><a href="Deconnexion.php">Se deconnecter</a></li>    
+        <li><a href="index.php">Accueil</a></li>
+        <li class="right" ><a href="logout.php">Se deconnecter</a></li>    
 </ul>
 
 <?php
@@ -66,8 +66,8 @@ $sql="SELECT id_faq, pseudo, question, dat_question, reponse, dat_reponse FROM f
                 echo "<td>".$donnees['reponse']."</td>";
                 if ($_SESSION["user"]["id_usertype"] != "1") {
                 ?>               
-                <td class="cells"><button type="submit" name="ajout"><a href="modifier.php?id=<?=$donnees['id_faq']?>"><img src="Img/modifier.png" alt=" "></a>
-               </button>&nbsp;<button type="submit" name="supprimer"><a href="supprimer.php?id=<?=$donnees['id_faq']?>"><img src="Img/poub.png" alt=" "></a></button></td>
+                <td class="cells"><button type="submit" name="ajout"><a href="edit.php?id=<?=$donnees['id_faq']?>"><img src="Img/modifier.png" alt=" "></a>
+               </button>&nbsp;<button type="submit" name="supprimer"><a href="delete.php?id=<?=$donnees['id_faq']?>"><img src="Img/poub.png" alt=" "></a></button></td>
                 <?php  
                 }
                 echo "</tr>"; 
@@ -76,7 +76,7 @@ $sql="SELECT id_faq, pseudo, question, dat_question, reponse, dat_reponse FROM f
             ?>
         </table>
         </div>
-        <p><a href="ajouter_question.php">Nouvelle Question</a></p>
+        <p><a href="add.php">Nouvelle Question</a></p>
     </div>
     <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
 </body>

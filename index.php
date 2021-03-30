@@ -12,14 +12,14 @@ include "inclusion.php"
 </head>
 <body>
     <ul>
-        <li><a class="active" href="Page_accueil.php">Accueil</a></li>
+        <li><a class="active" href="index.php">Accueil</a></li>
         <?php
         if (isset($_SESSION["user"])) {
-            echo "<li class=\"right\" ><a href=\"Deconnexion.php\">Se deconnecter</a></li>";
-            echo "<li class=\"right\" ><a href=\"Liste_des_questions.php\">FAQ</a></li>";
+            echo "<li class=\"right\" ><a href=\"logout.php\">Se deconnecter</a></li>";
+            echo "<li class=\"right\" ><a href=\"Liste.php\">FAQ</a></li>";
         }else{
-            echo "<li class=\"right\"><a href=\"Inscription.php\">S'inscrire</a></li>";
-            echo "<li class=\"right\"><a href=\"Connexion.php\">Se connecter</a></li>";
+            echo "<li class=\"right\"><a href=\"register.php\">S'inscrire</a></li>";
+            echo "<li class=\"right\"><a href=\"login.php\">Se connecter</a></li>";
         }
         ?>
     </ul>
