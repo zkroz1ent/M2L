@@ -4,7 +4,7 @@ date_default_timezone_set('Europe/Paris');
 $date = date('20y-m-d H:i:s');
 ?>
 
-
+    
 <!DOCTYPE html>
 <html lang="fr">
 

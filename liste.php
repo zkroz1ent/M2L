@@ -81,3 +81,4 @@ $sql="SELECT id_faq, pseudo, question, dat_question, reponse, dat_reponse FROM f
     <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
 </body>
 </html>
+        

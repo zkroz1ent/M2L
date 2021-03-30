@@ -4,7 +4,7 @@ $usertype = $_SESSION["usertype"];
 $id_faq = isset($_GET['id']) ? $_GET['id'] : null;
 
 ?>
-
+    
 <!DOCTYPE html>
 <html lang="fr">
 

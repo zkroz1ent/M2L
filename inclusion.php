@@ -14,7 +14,7 @@ try {
 } catch (PDOException $ex) {
     die("Erreur lors de la connexion SQL : " . $ex->getMessage());
 }
-
+    
     /*
 try
 {

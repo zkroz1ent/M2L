@@ -28,3 +28,4 @@ unset($_SESSION['user']);
 </body>
     <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
 </html>
+    

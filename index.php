@@ -23,7 +23,7 @@ include "inclusion.php"
         }
         ?>
     </ul>
-
+        
 
     <div class="marg">
         <h1>Maison des ligues de Lorraine</h1>
