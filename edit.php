@@ -78,7 +78,7 @@ echo "<td>".$row['question']."</td>";
 
 <textarea name="reponse" id="reponse" cols="30" rows="10" value="reponse"></textarea><br>
 
-<label for="submit"></label>
+<button type="button" name="moderne"><a href="Liste.php">Annuler</a></button>
 <input type="submit" name="submit" value="submit">
 <input type="text" name="id" hidden value="<?= $id_faq ?>">
 </form>

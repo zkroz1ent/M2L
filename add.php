@@ -26,7 +26,8 @@ date_default_timezone_set('Europe/Paris');
 
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <textarea name="question" id="question" cols="30" rows="10" value="question"></textarea><br>
-        <label for="submit"></label>
+     
+        <button type="button" name="moderne"><a href="Liste.php">Annuler</a></button>
         <input type="submit" name="submit" value="submit">
     </form>
 
