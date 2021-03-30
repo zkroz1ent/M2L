@@ -58,6 +58,7 @@ include "inclusion.php";
                     die("Erreur lors de la requête SQL : ".$ex->getMessage());
                 }
         }
+        }
         ?>
     </div>
     <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
