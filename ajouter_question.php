@@ -25,34 +25,24 @@ date_default_timezone_set('Europe/Paris');
     <H3>Ajouter une question</H3>
 
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-
-
-<textarea name="question" id="question" cols="30" rows="10" value="question"></textarea><br>
-
-<label for="submit"></label>
-<input type="submit" name="submit" value="submit">
-</form>
+        <textarea name="question" id="question" cols="30" rows="10" value="question"></textarea><br>
+        <label for="submit"></label>
+        <input type="submit" name="submit" value="submit">
+    </form>
 
 <?php
 $question = isset($_POST['question']) ? $_POST['question'] : '';
 $submit = isset($_POST['submit']);
 
-
-
-$id_user=1;
+$id_user=$_SESSION['user']['id_user'];
 if ($submit){
-
-  
-    
-    
-    
         try {
             $req = $dbh->prepare('INSERT INTO faq(question,dat_question , id_user) VALUES(:question, :datee ,:id_user)');
             $req->execute(array(
     
                 'question' => $question,
                 'datee' => $date,
-                 'id_user'=>$id_user,
+                'id_user'=>$id_user,
             ));
     
             echo 'enregistrement effectuéé !';
@@ -60,10 +50,6 @@ if ($submit){
         } catch (PDOException $ex) {
             die("Erreur lors de la requête SQL : " . $ex->getMessage());
         }
-
-
-
-
 }else{
 echo "<p>entrez votre question</p>";
 
