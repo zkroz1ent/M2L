@@ -97,6 +97,6 @@ ul {
   width: 100%;
   bottom: 0;
 }
-p {
+p,h1 {
   text-align: center;
 }

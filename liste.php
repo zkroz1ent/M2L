@@ -18,13 +18,12 @@ $sql="SELECT id_faq, pseudo, question, dat_question, reponse, dat_reponse FROM f
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<ul>
-        <li><a href="index.php">Accueil</a></li>
-        <li class="right" ><a href="logout.php">Se deconnecter</a></li>    
-</ul>
-
-<?php
-        ?>
+<! -- haut de page  -->
+    <ul>
+            <li><a href="index.php">Accueil</a></li>
+            <li class="right" ><a href="logout.php">Se deconnecter</a></li>    
+    </ul>
+<! -- corps de la page  -->
         <div class="marg">
         <h1>Liste des questions</h1>
         <br>
@@ -37,15 +36,13 @@ $sql="SELECT id_faq, pseudo, question, dat_question, reponse, dat_reponse FROM f
             <th>Date Réponse</th>
             <th>Réponse</th>
             <?php
-                if ($_SESSION["user"]["id_usertype"] != 1) {
+                if ($_SESSION["user"]["id_usertype"] != 1) { //condition d'affichage de la collonne action si on est admin ou superadmin
                     echo "<th>"."Action"."</th>";
                 }    
             ?>    
-           
-
         </tr>
         <?php
-        foreach($faq as $donnees){
+        foreach($faq as $donnees){ //boucle de recherche des données
             $sql="SELECT id_ligue FROM user, faq WHERE user.id_user = faq.id_user AND faq.id_faq=:id_faq";
             try {
                 $sth = $dbh->prepare($sql);
@@ -56,7 +53,7 @@ $sql="SELECT id_faq, pseudo, question, dat_question, reponse, dat_reponse FROM f
             } catch (PDOException $ex) {
                 die("Erreur lors de la requête SQL : " . $ex->getMessage());
             }
-            if($_SESSION['user']['id_ligue']==$id_ligue['id_ligue'] || $_SESSION['user']['id_usertype'] == 3){
+            if($_SESSION['user']['id_ligue']==$id_ligue['id_ligue'] || $_SESSION['user']['id_usertype'] == 3){ //affichage du tableau
             echo "<tr>"; 
                 echo "<td>".$donnees['id_faq']."</td>";
                 echo "<td>".$donnees['pseudo']."</td>";  
@@ -64,7 +61,7 @@ $sql="SELECT id_faq, pseudo, question, dat_question, reponse, dat_reponse FROM f
                 echo "<td>".$donnees['question']."</td>"; 
                 echo "<td>".$donnees['dat_reponse']."</td>"; 
                 echo "<td>".$donnees['reponse']."</td>";
-                if ($_SESSION["user"]["id_usertype"] != "1") {
+                if ($_SESSION["user"]["id_usertype"] != "1") { //affichage de la collonne action
                 ?>               
                 <td class="cells"><button type="submit" name="ajout"><a href="edit.php?id=<?=$donnees['id_faq']?>"><img src="Img/modifier.png" alt=" "></a>
                </button>&nbsp;<button type="submit" name="supprimer"><a href="delete.php?id=<?=$donnees['id_faq']?>"><img src="Img/poub.png" alt=" "></a></button></td>
@@ -73,11 +70,12 @@ $sql="SELECT id_faq, pseudo, question, dat_question, reponse, dat_reponse FROM f
                 echo "</tr>"; 
             }
         }
-            ?>
+        ?>
         </table>
         </div>
         <p><a href="add.php">Nouvelle Question</a></p>
     </div>
+    <! -- pied de page  -->
     <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
 </body>
 </html>

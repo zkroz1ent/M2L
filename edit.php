@@ -1,7 +1,5 @@
 <?php
-include "inclusion.php"
-?>
-<?php
+include "inclusion.php";
 $id_faq = isset($_GET['id']) ? $_GET['id'] : null;
 $date = date('20y-m-d H:i:s');
 ?>
@@ -16,72 +14,41 @@ $date = date('20y-m-d H:i:s');
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<ul>
-        <li><a href="Liste.php">FAQ</a></li>
-        <li class="right" ><a href="logout.php">Se deconnecter</a></li>
-       
-</ul>
+<! -- haut de page  -->
+    <ul>
+            <li><a href="Liste.php">FAQ</a></li>
+            <li class="right" ><a href="logout.php">Se deconnecter</a></li>
+        
+    </ul>
   
-
+<! -- corps de la page  -->
 <div class="marg">
 <p><h2>Modifier une question</h2></p>
-
-<p>
- 
-
-<br>
-<br>
+<br><br>
 <table>
     <tr>
-         
-          
-            <th>Questions</th>
-            
-        </tr>
-<table>
+        <th>Questions</th>        
+    </tr>
 <tr>
 <?php
-
-
-
-
-try {
-  
-$sth=$dbh->prepare('select question FROM faq WHERE faq.id_faq=:id_faq');
-
-$sth->execute(array(
-
-    'id_faq' => $id_faq
-
-
-));
-$row = $sth->fetch(PDO::FETCH_ASSOC);
-} catch (PDOException $ex) {
-die("Erreur lors de la requête SQL : " . $ex->getMessage());
-}
-
-echo "<td>".$row['question']."</td>";  
-
-
-
+    try { //requête d'affichage de la question et gestion des erreurs 
+        $sth=$dbh->prepare('select question FROM faq WHERE faq.id_faq=:id_faq');
+        $sth->execute(array('id_faq' => $id_faq));
+        $row = $sth->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $ex) {
+        die("Erreur lors de la requête SQL : " . $ex->getMessage());
+    }
+    echo "<td>".$row['question']."</td>";  
 ?>
+    </tr>   
+</table>
 
-    </tr>
-   
-    </table>
-
-
-<label for="Repquestion">Reponse</label> <br>  
-
-
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-
-
-<textarea name="reponse" id="reponse" cols="30" rows="10" value="reponse"></textarea><br>
-
-<button type="button" name="moderne"><a href="Liste.php">Annuler</a></button>
-<input type="submit" name="submit" value="submit">
-<input type="text" name="id" hidden value="<?= $id_faq ?>">
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+    <label for="reponse">Reponse</label> <br>  
+    <textarea name="reponse" id="reponse" cols="30" rows="10" value="reponse"></textarea><br>
+    <button type="button" name="moderne"><a href="Liste.php">Annuler</a></button>
+    <input type="submit" name="submit" value="Valider">
+    <input type="text" name="id" hidden value="<?= $id_faq ?>"><! -- renvois de l'id "caché"  -->
 </form>
 
 <?php
@@ -89,44 +56,25 @@ $reponse = isset($_POST['reponse']) ? $_POST['reponse'] : '';
 $submit = isset($_POST['submit']);
 $id_faq = isset($_POST['id']) ? $_POST['id'] : null;
 
-if ($submit){
-
-  
- 
-    
-    
-    try {
-        $idfaq=$id_faq ;
-        $req = $dbh->prepare('UPDATE  faq SET reponse =:reponse , dat_reponse =:date WHERE faq.id_faq=:id_faq');
-        $req->execute(array(
-
-            'reponse' => $reponse,
-             'id_faq'=> $id_faq,
-             'date' => $date 
-            
-        ));
-
-        echo 'enregistrement effectuéé !';
-        header('Location:Liste.php');     
-    } catch (PDOException $ex) {
-        die("Erreur lors de la requête SQL : " . $ex->getMessage());
+    if ($submit){ //si on appuis su le bouton submit
+        try {
+            $req = $dbh->prepare('UPDATE  faq SET reponse =:reponse , dat_reponse =:date WHERE faq.id_faq=:id_faq');
+            $req->execute(array(
+                'reponse' => $reponse,
+                'id_faq'=> $id_faq,
+                'date' => $date   
+            ));
+            header('Location:Liste.php');  //revois vers la liste des questions   
+        } catch (PDOException $ex) { //gestion des erreurs
+            die("Erreur lors de la requête SQL : " . $ex->getMessage());
+        }
+    }else{ //si on a pas validé le formulaire
+        echo "<p>entrez votre question</p>";
     }
-
-
-
-
-}else{
-echo "<p>entrez votre question</p>";
-
-}
 ?>
-
-
-
-
 <br>
-
 </div>
 </body>
+<! -- Pied de page  -->
     <p class="pied">SIO 2020/2021 Marques, Dutertre, Carles</p>
 </html>
