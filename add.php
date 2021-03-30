@@ -1,7 +1,7 @@
 <?php
 include "inclusion.php";
 date_default_timezone_set('Europe/Paris');
-    $date = date('20y-m-d h:i:s');
+    $date = date('20y-m-d H:i:s');
 ?>
 
 

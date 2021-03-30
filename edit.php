@@ -3,7 +3,7 @@ include "inclusion.php"
 ?>
 <?php
 $id_faq = isset($_GET['id']) ? $_GET['id'] : null;
-$date = date('20y-m-d h:i:s');
+$date = date('20y-m-d H:i:s');
 ?>
 
 <!DOCTYPE html>
