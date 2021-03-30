@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 23 mars 2021 à 16:59
--- Version du serveur :  10.4.16-MariaDB
--- Version de PHP : 7.4.12
+-- Généré le : mar. 30 mars 2021 à 14:16
+-- Version du serveur :  10.4.18-MariaDB
+-- Version de PHP : 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,7 +29,6 @@ USE `m2l`;
 -- Structure de la table `faq`
 --
 
-DROP TABLE IF EXISTS `faq`;
 CREATE TABLE `faq` (
   `id_faq` int(11) NOT NULL,
   `question` varchar(100) NOT NULL,
@@ -46,7 +45,9 @@ CREATE TABLE `faq` (
 INSERT INTO `faq` (`id_faq`, `question`, `reponse`, `dat_question`, `dat_reponse`, `id_user`) VALUES
 (1, 'Quelle est la taille d une cage de foot ?', NULL, '2021-01-15 10:30:00', NULL, 3),
 (2, 'Quelle est la durée d un match de handball ?', 'Deux mi-temps de 30 minutes', '2021-01-15 10:35:00', NULL, 6),
-(3, 'Quel est le nombre de joueurs dans une équipe de handball', NULL, '2021-01-15 12:15:00', NULL, 7);
+(3, 'Quel est le nombre de joueurs dans une équipe de handball', NULL, '2021-01-15 12:15:00', NULL, 7),
+(16, 'que veux dire la règle \" marcher\" ?', NULL, '2021-03-30 01:58:06', NULL, 47),
+(17, 'Comment les points se comptent ?', NULL, '2021-03-30 01:58:39', NULL, 46);
 
 -- --------------------------------------------------------
 
@@ -54,7 +55,6 @@ INSERT INTO `faq` (`id_faq`, `question`, `reponse`, `dat_question`, `dat_reponse
 -- Structure de la table `ligue`
 --
 
-DROP TABLE IF EXISTS `ligue`;
 CREATE TABLE `ligue` (
   `id_ligue` int(11) NOT NULL,
   `lib_ligue` varchar(100) NOT NULL
@@ -77,7 +77,6 @@ INSERT INTO `ligue` (`id_ligue`, `lib_ligue`) VALUES
 -- Structure de la table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `pseudo` varchar(20) NOT NULL,
@@ -100,8 +99,11 @@ INSERT INTO `user` (`id_user`, `pseudo`, `mdp`, `mail`, `id_usertype`, `id_ligue
 (6, 'userhand1', '$2y$10$8ZJw.M9bD/Zqv4z3VfW23uwZQlt3adE7DZD/rkH.PCvB5B2.QVfGy', 'userhand1@m2l.fr', 1, 4),
 (7, 'userhand2', '$2y$10$2ygKyuMJNCwAUwNrRSE.1emIUyXLfbLO6dgiGp5VFJovWHPUZKfcG', 'userhand2@m2l.fr', 1, 4),
 (8, 'adminvolley', '$2y$10$CEshAiL8Cex1eqYhy6Und.NTEcBKgUYaMqtYQNRtySuUrxce7sUga', 'adminvolley@m2l.fr', 2, 3),
-(41, 'Adrien', '$2y$05$IB4egMq7gcA8QRFiVwh1J.TR/2KLrKfNtA4LVXS738Q5jD4Dgmz.6', 'adrien@gmail.com', 1, 5),
-(42, 'Yohann', '$2y$05$5OsGkW8hnzGGAbzPjOv4yut4xAaGLb4yrCy0toRgLIr4ExBYg4v8q', 'yo@g', 1, 5);
+(43, 'yohan', '$2y$10$7UtUFQpdzsJ7vse8zIswhel0j.yQBpRpwN/EP8WviQQ2ajKxMecMq', 'yohan@mail.fr', 1, 5),
+(45, 'damien', '$2y$10$0W8k8BHn2bJPRezsNhEtB.0xjmM1eWsdnVdgwUk/ly9ydHQqWGqMu', 'damien@mail.fr', 1, 4),
+(46, 'gus', '$2y$10$BRWbUrKaVWIeKXjxXZbM3.AYd7jy3Lec2mjXD7rejGckHbnz3VrJC', 'gus@mail.fr', 1, 3),
+(47, 'adrien', '$2y$10$b3SDcRaLG0eu4BffzyGrPuo2OiX9eZL2zhMi8reUkcnjbyHirynP2', 'adrien@mail.fr', 1, 2),
+(48, 'adminbasket', '$2y$10$0W8k8BHn2bJPRezsNhEtB.0xjmM1eWsdnVdgwUk/ly9ydHQqWGqMu', 'adminbasket@m2l.fr', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -109,7 +111,6 @@ INSERT INTO `user` (`id_user`, `pseudo`, `mdp`, `mail`, `id_usertype`, `id_ligue
 -- Structure de la table `usertype`
 --
 
-DROP TABLE IF EXISTS `usertype`;
 CREATE TABLE `usertype` (
   `id_usertype` int(11) NOT NULL,
   `lib_usertype` varchar(20) NOT NULL,
@@ -164,7 +165,7 @@ ALTER TABLE `usertype`
 -- AUTO_INCREMENT pour la table `faq`
 --
 ALTER TABLE `faq`
-  MODIFY `id_faq` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_faq` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT pour la table `ligue`
@@ -176,7 +177,7 @@ ALTER TABLE `ligue`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT pour la table `usertype`
